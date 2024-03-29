@@ -1,9 +1,9 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.util.ArrayList;
-
+import java.awt.*;
+import java.util.*;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.border.Border;
 
 public class TutorialScreen extends GameScreen {
 	
@@ -13,7 +13,7 @@ public class TutorialScreen extends GameScreen {
 	private GameManager gameManager;
 
 	public TutorialScreen(GameManager gameManager)	{
-		gameManager = this.gameManager;
+		this.gameManager = gameManager;
 		initialize();
 
 	}
@@ -21,6 +21,22 @@ public class TutorialScreen extends GameScreen {
 	@Override
 	protected void initialize() {
 		
+		JButton backToMain = new JButton();
+		ImageIcon backIcon = new ImageIcon(getClass().getResource("/images/back.png"));
+		backToMain.setIcon(backIcon);
+		backToMain.setBounds(5, 540, 60, 60);
+		backToMain.setBackground(null);
+		backToMain.setBorderPainted(false); 
+		backToMain.setContentAreaFilled(false); 
+		backToMain.setActionCommand("back");
+		backToMain.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        handleInput(e.getActionCommand()); 
+    }
+		});
+	this.add(backToMain);
+
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.gray);
 		this.setFocusable(true);
@@ -39,18 +55,14 @@ public class TutorialScreen extends GameScreen {
 		JButton options = new JButton();
 		options.setIcon(optionsIcon);
 		options.setBounds(70, 10, 60, 60);
-		options.setOpaque(false);
-		options.setContentAreaFilled(false);
-		options.setBorderPainted(false);
+		options.setBackground(null);
 		options.setToolTipText("<html>Use this menu to pause the game. <br/>From there, you can either continue<br/>or exit back to level selection.</html>");
 		this.add(options);
 		
 		JButton score = new JButton();
 		score.setIcon(optionsIcon);
 		score.setBounds(550, 10, 60, 60);
-		options.setOpaque(false);
-		options.setContentAreaFilled(false);
-		options.setBorderPainted(false);
+		score.setBackground(null);
 		score.setToolTipText("<html>This is your score.<br/>You will be awarded points<br/>for each correct answer.</html>");
 		this.add(score);
 		
@@ -81,8 +93,14 @@ public class TutorialScreen extends GameScreen {
 		hint.setBackground(null);
 		hint.setToolTipText("<html>This will give you<br/>a hint about the location.<br/>You have a set number of hints.</html>");
 		this.add(hint);
-
 		
+		this.setComponentZOrder(options, 0);
+		this.setComponentZOrder(score, 0);
+		this.setComponentZOrder(hintsLeft, 0);
+		this.setComponentZOrder(location, 0);
+		this.setComponentZOrder(answer, 0);
+		this.setComponentZOrder(hint, 0);
+
 	}	
 
 	@Override
@@ -102,6 +120,9 @@ public class TutorialScreen extends GameScreen {
 
 	@Override
 	protected void handleInput(String actionCommand) {
+		if ("back".equals(actionCommand)) {
+			gameManager.changeGameState("MAIN_MENU"); 
+		}
 	}
 	
 }

@@ -33,6 +33,15 @@ public class GameManager implements ActionListener {
         MainMenuScreen mainMenuScreen = new MainMenuScreen(this);
         cardPanel.add(mainMenuScreen, "MAIN_MENU");
 
+        NewGameScreen newGameScreen = new NewGameScreen(this);
+        cardPanel.add(newGameScreen, "NEW_GAME");
+        
+        LoadGameScreen loadGameScreen = new LoadGameScreen(this);
+        cardPanel.add(loadGameScreen, "LOAD_GAME");
+
+        LevelSelectionScreen levelSelectionScreen = new LevelSelectionScreen(this);
+        cardPanel.add(levelSelectionScreen, "LEVEL_SELECT");
+
         HighScoreScreen highScoreScreen = new HighScoreScreen(this);
         cardPanel.add(highScoreScreen, "HIGH_SCORES");
 
