@@ -32,7 +32,11 @@ public class NewGameScreen extends GameScreen {
         createButton = new JButton("Create Profile");
         createButton.addActionListener(this::createProfileAction);
         add(createButton);
-
+        
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(e -> gameManager.changeGameState("MAIN_MENU"));
+        this.add(backButton);
+        
         feedbackLabel = new JLabel("");
         add(feedbackLabel);
     }
@@ -66,7 +70,7 @@ public class NewGameScreen extends GameScreen {
         feedbackLabel.setText("Profile created successfully.");
 
         // Transition to Level Select screen (assuming you have this setup)
-        gameManager.changeGameState("LEVEL_SELECT");
+        gameManager.switchToLevelSelectionScreen(newGameData);
     }
 
     @Override

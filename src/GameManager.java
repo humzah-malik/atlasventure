@@ -39,9 +39,6 @@ public class GameManager implements ActionListener {
         LoadGameScreen loadGameScreen = new LoadGameScreen(this);
         cardPanel.add(loadGameScreen, "LOAD_GAME");
 
-        LevelSelectionScreen levelSelectionScreen = new LevelSelectionScreen(this);
-        cardPanel.add(levelSelectionScreen, "LEVEL_SELECT");
-
         HighScoreScreen highScoreScreen = new HighScoreScreen(this);
         cardPanel.add(highScoreScreen, "HIGH_SCORES");
 
@@ -81,6 +78,13 @@ public class GameManager implements ActionListener {
         cardLayout.show(cardPanel, newState);
 
     }
+
+    public void switchToLevelSelectionScreen(GameData currentPlayerData) {
+        LevelSelectionScreen levelSelectionScreen = new LevelSelectionScreen(this, currentPlayerData);
+        cardPanel.add(levelSelectionScreen, "LEVEL_SELECT");
+        cardLayout.show(cardPanel, "LEVEL_SELECT");
+    }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {

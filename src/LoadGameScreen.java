@@ -31,9 +31,14 @@ public class LoadGameScreen extends GameScreen {
         loginButton = new JButton("Log In");
         loginButton.addActionListener(this::loginAction);
         add(loginButton);
+        
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(e -> gameManager.changeGameState("MAIN_MENU"));
+        this.add(backButton);
 
         feedbackLabel = new JLabel("");
         add(feedbackLabel);
+
     }
 
     private void loginAction(ActionEvent e) {
@@ -57,8 +62,7 @@ public class LoadGameScreen extends GameScreen {
         GameData playerData = gameDataMap.get(username);
         if (playerData != null && GameDataManager.toSHA1(password).equals(playerData.getPassword())) {
             feedbackLabel.setText("Login successful.");
-            // Proceed to load player's game state or the level select screen
-            gameManager.changeGameState("LEVEL_SELECT"); // or a different state based on your game logic
+            gameManager.switchToLevelSelectionScreen(playerData);
         } else {
             feedbackLabel.setText("Invalid username or password.");
         }
