@@ -1,0 +1,3 @@
+# AtlasVenture
+### _Making Geography fun_
+AtlasVenture is a game to learn and test your geography knowledge. It uses the captivating nature of gaming to promote learning by acting as a link between the dynamic world we live in and the complex knowledge we aspire to acquire. Our game takes advantage of the new opportunities that digital media presents to combine learning and entertainment, providing a stimulating and educational experience. Players are invited into an interactive environment that goes beyond traditional learning methods, using gamification to heighten motivation, focus, and retention of information.

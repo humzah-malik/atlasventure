@@ -1,0 +1,108 @@
+//GameDataManager.java
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class GameDataManager {
+    // private static final String FILE_PATH = "game_data.json";
+
+    public static void saveGameData(HashMap < String, GameData > gameDataMap, String filePath) {
+        filePath = getCorrectJSONPath(filePath);
+        try {
+            FileWriter myWriter = new FileWriter(filePath);
+            myWriter.write("[");
+            boolean firstEntryAdded = false;
+            for (var item: gameDataMap.entrySet()) {
+                if (firstEntryAdded)
+                    myWriter.write(",");
+                GameData gameData = item.getValue();
+                myWriter.write(
+                        "{" +
+                                "\"username\": \"" + gameData.getPlayerUsername() + "\",\n" +
+                                "\"score\": " + gameData.getScore() + ",\n" +
+                                "\"hintsUsed\": " + gameData.getHintsUsed() + ",\n" +
+                                "\"levelCompleted\": " + gameData.getLevelCompleted() + ",\n" +
+                                "\"levelsLeft\": " + gameData.getLevelsLeftString() + ",\n" +
+                                "\"password\": \"" + gameData.getPassword() + "\"\n" +
+
+                                "}");
+                firstEntryAdded = true;
+
+            }
+            myWriter.write("]");
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    // Username to Gamedata map
+    public static HashMap < String, GameData > loadGameData(String filePath) {
+        try {
+            File myObj = new File(filePath);
+            Scanner myReader = new Scanner(myObj);
+
+            String result = "";
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                result += data + "\n";
+            }
+            myReader.close();
+            HashMap < String, GameData > map = new HashMap < > ();
+            ArrayList < String > userNames = getUsernamesInFile(result);
+            for (int i = 0; i < userNames.size(); i++) {
+                GameData gameData = new GameData();
+                if (!gameData.loadDataFromString(result, userNames.get(i))) {
+                    System.out.println("Error");
+                    return null;
+                }
+                map.put(userNames.get(i), gameData);
+            }
+
+            return map;
+        } catch (FileNotFoundException e) {
+            // System.out.println("An error occurred.");
+            // e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ArrayList < String > getUsernamesInFile(String fileContents) {
+        ArrayList < String > result = new ArrayList < > ();
+        Pattern pattern = Pattern.compile("\"username\"\\s*:\\s*\"([^\"]+)\"", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(fileContents);
+        while (matcher.find()) {
+            result.add(matcher.group(1));
+        }
+        return result;
+    }
+
+    public static String getCorrectJSONPath(String filePath) {
+        if (filePath.length() > 5 && filePath.substring(filePath.length() - 5, filePath.length()).equals(".json")) {} else
+            filePath += ".json";
+        return filePath;
+    }
+
+    public static String toSHA1(String str) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return new String(md.digest(str.getBytes()));
+    }
+}
