@@ -1,123 +1,148 @@
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.border.Border;
+import java.util.HashMap;
+import java.util.List;
 
 public class InstructorDashboardScreen extends GameScreen {
     
     static final int SCREEN_WIDTH = 800;
     static final int SCREEN_HEIGHT = 600;
     private GameManager gameManager;
+    private final String INSTRUCTOR_PASSWORD = "123"; // Set your password here.
+    private JPanel contentPanel;
     
-    public InstructorDashboardScreen(GameManager gameManager) {
-        initialize();
-        this.gameManager = gameManager;
-    }
-    
-    @Override
-    protected void initialize() {
-        this.setLayout(new BorderLayout()); // Set the layout for the main panel.
-        this.setBackground(Color.gray);
-        this.setFocusable(true);
-        
-        // Create a panel that will hold all the content.
-        JPanel contentPanel = new JPanel();
-        contentPanel.setLayout(null);
-        contentPanel.setBackground(Color.gray);
-        contentPanel.setPreferredSize(new Dimension(SCREEN_WIDTH, 950)); // Adjust the height as necessary.
-        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        topPanel.setBackground(Color.gray);
-        
-        // Add back button.
-        JButton backToMain = new JButton();
-		ImageIcon backIcon = new ImageIcon(getClass().getResource("/images/back.png"));
-		backToMain.setIcon(backIcon);
-		backToMain.setBounds(10, 10, 60, 60);
-		backToMain.setBackground(null);
-		backToMain.setBorderPainted(false); 
-		backToMain.setContentAreaFilled(false); 
-		backToMain.setActionCommand("back"); 
-		backToMain.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        handleInput(e.getActionCommand());
-        }
-});
-topPanel.add(backToMain);
 
-// Add title.
-JLabel title = new JLabel("Instructor Dashboard");
-title.setHorizontalAlignment(JLabel.CENTER);
-title.setFont(new Font("Comic Sans MS", Font.BOLD, 60));
-title.setForeground(Color.black);
-title.setSize(650, 100);
-title.setLocation((SCREEN_WIDTH - title.getWidth()) / 2, 0);
-topPanel.add(title);
+    public InstructorDashboardScreen(GameManager gameManager) {
+        this.gameManager = gameManager;
         
-        // Method to create player panels.
-        contentPanel.add(createPlayerPanel("Player 1", 320, 4, "1, 2, 3", 5, 100));
-        contentPanel.add(createPlayerPanel("Player 2", 300, 3, "1, 2", 5, 375));
-        contentPanel.add(createPlayerPanel("Player 3", 250, 4, "1, 2, 3", 1, 650));
+        if (!verifyPassword()) {
+            // If password verification fails, change state back to main menu.
+            SwingUtilities.invokeLater(() -> gameManager.changeGameState("MAIN_MENU"));
+        } else {
+            // If verification is successful, proceed to load UI components and player data.
+            SwingUtilities.invokeLater(this::initializeUIComponents);
+        }
+    }
+
+    private void initializeUIComponents() {
+        setLayout(new BorderLayout());
+        setBackground(Color.gray);
+        setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
+
+        // Top panel with back button and title
+        JPanel topPanel = createTopPanel();
+        add(topPanel, BorderLayout.NORTH);
         
-        // Wrap the content panel in a scrollpane.
+        // Content panel for displaying player data
+        contentPanel = new JPanel();
+        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+        contentPanel.setBackground(Color.gray);
+
+        // Scroll pane to enable scrolling through the player data
         JScrollPane scrollPane = new JScrollPane(contentPanel);
-        scrollPane.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.getVerticalScrollBar().setUnitIncrement(15);
-        this.add(scrollPane, BorderLayout.CENTER); // Add the scrollPane to the main panel.
-        this.add(topPanel, BorderLayout.NORTH);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        add(scrollPane, BorderLayout.CENTER);
+
+        // Load and display the player data
+        loadAndDisplayPlayerData();
     }
 
-    // Helper method to create player panels.
-    private JPanel createPlayerPanel(String playerName, int score, int level, String levelsCompleted, int attempts, int yPos) {
-        JPanel playerPanel = new JPanel();
-        playerPanel.setBackground(Color.white);
-        Border blackBorder = BorderFactory.createLineBorder(Color.black, 3);
-        playerPanel.setBorder(blackBorder);
-        playerPanel.setLayout(null);
-        playerPanel.setBounds(100, yPos, 600, 250);
-        
-        JLabel playerLabel = new JLabel(playerName);
-        playerLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
-        playerLabel.setForeground(Color.black);
-        playerLabel.setBounds(50, 10, 400, 50);
-        
-        String details = String.format("<html>Current Score: %d<br/>"
-                + "Current Level: %d<br/>"
-                + "Levels Completed: %s<br/>"
-                + "Number of attempts per level: %d</html>", score, level, levelsCompleted, attempts);
-        JLabel playerStats = new JLabel(details);
-        playerStats.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-        playerStats.setForeground(Color.black);
-        playerStats.setBounds(50, 75, 400, 150);
-        
-        playerPanel.add(playerLabel);
-        playerPanel.add(playerStats);
-        
-        return playerPanel;
-    }
+    private JPanel createTopPanel() {
+        // Main top panel with BorderLayout
+        JPanel topPanel = new JPanel(new BorderLayout());
+        topPanel.setBackground(Color.gray);
+        topPanel.setPreferredSize(new Dimension(SCREEN_WIDTH, 80));
     
+        // Left-aligned panel for the back button
+        JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        backButtonPanel.setOpaque(false); // Make it transparent
+    
+        JButton backToMain = new JButton(new ImageIcon(getClass().getResource("/images/back.png")));
+        backToMain.setPreferredSize(new Dimension(60, 60)); // Adjust as needed
+        backToMain.setBorderPainted(false);
+        backToMain.setContentAreaFilled(false);
+        backToMain.addActionListener(e -> gameManager.changeGameState("MAIN_MENU"));
+        backButtonPanel.add(backToMain);
+    
+        // Add the back button panel to the WEST side of the topPanel
+        topPanel.add(backButtonPanel, BorderLayout.WEST);
+    
+        // Center-aligned panel for the title
+        JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        titlePanel.setOpaque(false); // Make it transparent
+    
+        JLabel titleLabel = new JLabel("Instructor Dashboard");
+        titleLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 36));
+        titleLabel.setForeground(Color.black);
+        titlePanel.add(titleLabel);
+    
+        // Add the title panel to the CENTER of the topPanel
+        topPanel.add(titlePanel, BorderLayout.CENTER);
+    
+        return topPanel;
+    }
+
+    private boolean verifyPassword() {
+        JPasswordField pf = new JPasswordField();
+        int ok = JOptionPane.showConfirmDialog(null, pf, "Enter Instructor Password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        return ok == JOptionPane.OK_OPTION && INSTRUCTOR_PASSWORD.equals(new String(pf.getPassword()));
+    }
+
+    private void loadAndDisplayPlayerData() {
+        contentPanel.removeAll();
+
+        List<GameData> players = GameDataManager.getInfo(GameDataManager.FILE_PATH);
+
+        for (GameData player : players) {
+            JPanel playerPanel = createPlayerInfoPanel(player);
+            contentPanel.add(playerPanel);
+        }
+        System.out.println("Loaded players: " + players.size());
+
+        contentPanel.revalidate();
+        contentPanel.repaint();
+
+    }
+
+    private JPanel createPlayerInfoPanel(GameData data) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4, 2, 10, 10));
+        panel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), "Player Info"));
+
+        panel.add(new JLabel("Username:"));
+        panel.add(new JLabel(data.getPlayerUsername()));
+        panel.add(new JLabel("Score:"));
+        panel.add(new JLabel(String.valueOf(data.getScore())));
+        panel.add(new JLabel("Level Completed:"));
+        panel.add(new JLabel(String.valueOf(data.getLevelCompleted())));
+        panel.add(new JLabel("Hints Used:"));
+        panel.add(new JLabel(String.valueOf(data.getHintsUsed())));
+
+        return panel;
+    }
+
+    @Override
+    protected void initialize() {
+    }
+
     @Override
     public void updateScreen() {
-        repaint();
     }
 
     @Override
     public void activate() {
-        this.setVisible(true);
     }
 
     @Override
     public void deactivate() {
-        this.setVisible(false);
     }
 
     @Override
     protected void handleInput(String actionCommand) {
-        if ("back".equals(actionCommand)) {
-			gameManager.changeGameState("MAIN_MENU"); 
-		}
+        
     }
 }

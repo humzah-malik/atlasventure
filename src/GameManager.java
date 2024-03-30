@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,8 +40,8 @@ public class GameManager implements ActionListener {
         LoadGameScreen loadGameScreen = new LoadGameScreen(this);
         cardPanel.add(loadGameScreen, "LOAD_GAME");
 
-        HighScoreScreen highScoreScreen = new HighScoreScreen(this);
-        cardPanel.add(highScoreScreen, "HIGH_SCORES");
+        //HighScoreScreen highScoreScreen = new HighScoreScreen(this);
+        //cardPanel.add(highScoreScreen, "HIGH_SCORES");
 
         DebugMode dpassScreen = new DebugMode(this);
         cardPanel.add(dpassScreen, "DEBUG_MODE");
@@ -51,11 +52,8 @@ public class GameManager implements ActionListener {
         TutorialScreen tutorialScreen = new TutorialScreen(this);
         cardPanel.add(tutorialScreen, "TUTORIAL");
 
-        //ProgressScreen progressScreen = new ProgressScreen(this);
-        //cardPanel.add(progressScreen, "PROGRESS");
-
-        InstructorDashboardScreen instructorDashboard = new InstructorDashboardScreen(this);
-        cardPanel.add(instructorDashboard, "INSTRUCTOR");
+        //GameModeScreen gameModeScreen = new GameModeScreen(this);
+        //cardPanel.add(gameModeScreen, "GAME_MODE");
 
         // Add the card panel to the main frame
         mainFrame.add(cardPanel);
@@ -84,8 +82,33 @@ public class GameManager implements ActionListener {
         cardPanel.add(levelSelectionScreen, "LEVEL_SELECT");
         cardLayout.show(cardPanel, "LEVEL_SELECT");
     }
-    
 
+    public void switchToGameModeScreen(GameData currentPlayerData) {
+        GameModeScreen gameModeScreen = new GameModeScreen(this, currentPlayerData);
+        cardPanel.add(gameModeScreen, "GAME_MODE");
+        cardLayout.show(cardPanel, "GAME_MODE");
+    }
+    public void switchToDebugLevelSelection(GameData debugData) {
+        LevelSelectionScreen levelSelectionScreen = new LevelSelectionScreen(this, debugData);
+        cardPanel.add(levelSelectionScreen, "LEVEL_SELECT_DEBUG");
+        cardLayout.show(cardPanel, "LEVEL_SELECT_DEBUG");
+    }
+    
+    public void showHighScores() {
+        List<GameData> topScores = GameDataManager.getTopScores("game_data.json");
+        HighScoreScreen highScoreScreen = new HighScoreScreen(this, topScores); 
+        cardPanel.add(highScoreScreen, "HIGH_SCORES");
+        cardLayout.show(cardPanel, "HIGH_SCORES");
+    }
+
+    public void showInstructorDashboard() {
+        InstructorDashboardScreen instructorScreen = new InstructorDashboardScreen(this);
+        cardPanel.add(instructorScreen, "INSTRUCTOR");
+        cardLayout.show(cardPanel, "INSTRUCTOR");
+        instructorScreen.initialize(); // Now explicitly calling initialize
+    }
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         

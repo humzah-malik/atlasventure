@@ -68,9 +68,7 @@ public class NewGameScreen extends GameScreen {
         GameDataManager.saveGameData(gameDataMap, "game_data.json");
 
         feedbackLabel.setText("Profile created successfully.");
-
-        // Transition to Level Select screen (assuming you have this setup)
-        gameManager.switchToLevelSelectionScreen(newGameData);
+        gameManager.switchToGameModeScreen(newGameData);
     }
 
     @Override

@@ -5,10 +5,10 @@ public class GameFrame extends JFrame {
 	
 	public GameFrame() {
 		MainMenuScreen mainMenu = new MainMenuScreen(null);
-		HighScoreScreen highScores = new HighScoreScreen(null);
+		HighScoreScreen highScores = new HighScoreScreen(null, null);
 		GameplayScreen gameplay = new GameplayScreen();
 		InstructorDashboardScreen dashboard = new InstructorDashboardScreen(null);
-		GameModeScreen gameMode = new GameModeScreen();
+		GameModeScreen gameMode = new GameModeScreen(null, null);
 		TutorialScreen tutorial = new TutorialScreen(null);
 		
 //		this.add(mainMenu);

@@ -62,7 +62,7 @@ public class LoadGameScreen extends GameScreen {
         GameData playerData = gameDataMap.get(username);
         if (playerData != null && GameDataManager.toSHA1(password).equals(playerData.getPassword())) {
             feedbackLabel.setText("Login successful.");
-            gameManager.switchToLevelSelectionScreen(playerData);
+            gameManager.switchToGameModeScreen(playerData);
         } else {
             feedbackLabel.setText("Invalid username or password.");
         }

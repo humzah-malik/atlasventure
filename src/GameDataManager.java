@@ -9,13 +9,15 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class GameDataManager {
-    // private static final String FILE_PATH = "game_data.json";
+    static final String FILE_PATH = "game_data.json";
 
     public static void saveGameData(HashMap < String, GameData > gameDataMap, String filePath) {
         filePath = getCorrectJSONPath(filePath);
@@ -104,5 +106,27 @@ public class GameDataManager {
             e.printStackTrace();
         }
         return new String(md.digest(str.getBytes()));
+    }
+
+    public static List<GameData> getTopScores(String filePath) {
+        HashMap<String, GameData> gameDataMap = loadGameData(filePath); // Assuming you have this method
+        
+        if (gameDataMap == null) return new ArrayList<>(); // Handle case where data couldn't be loaded
+
+        // Convert the values of the map to a stream, sort it by score in descending order, limit to top 5, and collect to a list
+        return gameDataMap.values().stream()
+                .sorted((data1, data2) -> Integer.compare(data2.getScore(), data1.getScore()))
+                .limit(5)
+                .collect(Collectors.toList());
+    }
+    public static List<GameData> getInfo(String filePath) {
+        HashMap<String, GameData> gameDataMap = loadGameData(filePath); // Assuming you have this method
+        
+        if (gameDataMap == null) return new ArrayList<>(); // Handle case where data couldn't be loaded
+
+        // Convert the values of the map to a stream, sort it by score in descending order, limit to top 5, and collect to a list
+        return gameDataMap.values().stream()
+                .sorted((data1, data2) -> Integer.compare(data2.getScore(), data1.getScore()))
+                .collect(Collectors.toList());
     }
 }

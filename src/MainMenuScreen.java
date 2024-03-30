@@ -117,10 +117,10 @@ public class MainMenuScreen extends GameScreen {
                 gameManager.changeGameState("TUTORIAL");
                 break;
             case "High Scores":
-                gameManager.changeGameState("HIGH_SCORES");
+                gameManager.showHighScores();
                 break;
             case "Instructor Dashboard":
-                gameManager.changeGameState("INSTRUCTOR");
+                gameManager.showInstructorDashboard();
                 break;
             case "Debug Mode":
                 gameManager.changeGameState("DEBUG_MODE");

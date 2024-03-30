@@ -2,9 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class DebugMode extends JPanel {
-    private final String DEBUG_PASSWORD = "devPassword123";
+    private final String DEBUG_PASSWORD = "123";
     private GameManager gameManager;
 
     public DebugMode(GameManager gameManager) {
@@ -37,7 +38,9 @@ public class DebugMode extends JPanel {
                 String enteredPassword = new String(passwordField.getPassword());
                 if (DEBUG_PASSWORD.equals(enteredPassword)) {
                     statusLabel.setText("Access Granted");
-                    gameManager.changeGameState("MAIN_MENU");
+                    // Assuming you have 5 levels, for example
+                    GameData debugData = createDebugGameData(5); // Creates a GameData instance with all levels unlocked
+                    gameManager.switchToDebugLevelSelection(debugData); // A new method in GameManager for this purpose
                 } else {
                     statusLabel.setText("Access Denied");
                 }
@@ -51,5 +54,14 @@ public class DebugMode extends JPanel {
               
             }
         });
-    }   
+    }
+    
+    private GameData createDebugGameData(int totalLevels) {
+    ArrayList<Integer> levelsLeft = new ArrayList<>();
+    for (int i = 1; i <= totalLevels; i++) {
+        levelsLeft.add(i); // Assuming levels are numbered starting from 1
+    }
+    // Set high numbers to ensure all levels are unlocked and considered "completed"
+    return new GameData("DebugPlayer", 9999, 0, totalLevels, levelsLeft);
+}
 }
