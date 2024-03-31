@@ -78,7 +78,7 @@ public class GameModeScreen extends GameScreen {
     
     // Define the action commands for each button
     classicButton.setActionCommand("LEVEL_SELECT");
-    themeBasedButton.setActionCommand("THEME_BASED_MODE");
+    themeBasedButton.setActionCommand("THEME_MODE");
     myQuestionSetButton.setActionCommand("MY_QUESTION_SET");
     createQuestionSetButton.setActionCommand("CREATE_QUESTION_SET");
     
@@ -89,8 +89,8 @@ public class GameModeScreen extends GameScreen {
             case "LEVEL_SELECT":
                 gameManager.switchToLevelSelectionScreen(playerData);
                 break;
-            case "THEME_BASED_MODE":
-                gameManager.changeGameState("THEME_BASED_MODE");
+            case "THEME_MODE":
+                gameManager.switchToThemeBasedModeSelectionScreen(playerData);
                 break;
             case "MY_QUESTION_SET":
                 gameManager.changeGameState("MY_QUESTION_SET");

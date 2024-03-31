@@ -18,27 +18,54 @@ public class LoadGameScreen extends GameScreen {
 
     @Override
     protected void initialize() {
-        setLayout(new GridLayout(0, 1)); // Use a simple grid layout
+        this.setLayout(null); // Use null layout for absolute positioning
+        this.setPreferredSize(new Dimension(800, 600));
+        this.setBackground(Color.gray);
 
-        add(new JLabel("Username:"));
+        JLabel titleLabel = new JLabel("Log In");
+        titleLabel.setHorizontalAlignment(JLabel.CENTER);
+        titleLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+        titleLabel.setForeground(Color.black);
+        titleLabel.setBounds(200, 50, 400, 50);
+        this.add(titleLabel);
+
+        int yStart = 150;
+        JLabel usernameLabel = new JLabel("Username:");
+        usernameLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+        usernameLabel.setForeground(Color.black);
+        usernameLabel.setBounds(200, yStart, 150, 30);
+        this.add(usernameLabel);
+
         usernameField = new JTextField();
-        add(usernameField);
+        usernameField.setBounds(350, yStart, 250, 30);
+        this.add(usernameField);
 
-        add(new JLabel("Password:"));
+        JLabel passwordLabel = new JLabel("Password:");
+        passwordLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+        passwordLabel.setForeground(Color.black);
+        passwordLabel.setBounds(200, yStart + 50, 150, 30);
+        this.add(passwordLabel);
+
         passwordField = new JPasswordField();
-        add(passwordField);
+        passwordField.setBounds(350, yStart + 50, 250, 30);
+        this.add(passwordField);
 
         loginButton = new JButton("Log In");
+        loginButton.setBounds(350, yStart + 100, 150, 30);
         loginButton.addActionListener(this::loginAction);
-        add(loginButton);
+        this.add(loginButton);
         
         JButton backButton = new JButton("Back");
+        backButton.setBounds(350, yStart + 150, 150, 30);
         backButton.addActionListener(e -> gameManager.changeGameState("MAIN_MENU"));
         this.add(backButton);
 
         feedbackLabel = new JLabel("");
-        add(feedbackLabel);
-
+        feedbackLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+        feedbackLabel.setForeground(Color.red);
+        feedbackLabel.setBounds(200, yStart + 200, 400, 30);
+        feedbackLabel.setHorizontalAlignment(JLabel.CENTER);
+        this.add(feedbackLabel);
     }
 
     private void loginAction(ActionEvent e) {

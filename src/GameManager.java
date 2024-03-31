@@ -88,6 +88,13 @@ public class GameManager implements ActionListener {
         cardPanel.add(gameModeScreen, "GAME_MODE");
         cardLayout.show(cardPanel, "GAME_MODE");
     }
+
+    public void switchToThemeBasedModeSelectionScreen(GameData currentPlayerData) {
+        ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen = new ThemeBasedModeSelectionScreen(this, currentPlayerData);
+        cardPanel.add(themeBasedModeSelectionScreen, "THEME_MODE");
+        cardLayout.show(cardPanel, "THEME_MODE");
+    }
+
     public void switchToDebugLevelSelection(GameData debugData) {
         LevelSelectionScreen levelSelectionScreen = new LevelSelectionScreen(this, debugData);
         cardPanel.add(levelSelectionScreen, "LEVEL_SELECT_DEBUG");
