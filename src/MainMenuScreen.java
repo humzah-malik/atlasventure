@@ -38,16 +38,27 @@ public class MainMenuScreen extends GameScreen {
         title.setLocation((SCREEN_WIDTH - title.getWidth()) / 2, 0);
         this.add(title); 
 		
-        JButton backToMain = new JButton(new ImageIcon(getClass().getResource("/images/music-off.png")));
-        backToMain.setBounds(10, 10, 60, 60);
-        backToMain.setBackground(null);
-        backToMain.setBorderPainted(false);
-        backToMain.setContentAreaFilled(false);
-        backToMain.addActionListener(e ->{ 
+        JButton musicoff = new JButton(new ImageIcon(getClass().getResource("/images/music-off.png")));
+        musicoff.setBounds(-5, 10, 60, 60);
+        musicoff.setBackground(null);
+        musicoff.setBorderPainted(false);
+        musicoff.setContentAreaFilled(false);
+        musicoff.addActionListener(e ->{ 
             AudioManager.getInstance().stopMenuMusic();
             AudioManager.getInstance().playButtonClickSound();
         });
-        this.add(backToMain);
+        this.add(musicoff);
+
+        JButton musicon = new JButton(new ImageIcon(getClass().getResource("/images/music-on.png")));
+        musicon.setBounds(45, 10, 60, 60);
+        musicon.setBackground(null);
+        musicon.setBorderPainted(false);
+        musicon.setContentAreaFilled(false);
+        musicon.addActionListener(e ->{ 
+            AudioManager.getInstance().playMenuMusic();
+            AudioManager.getInstance().playButtonClickSound();
+        });
+        this.add(musicon);
 
 		menuOptions = new ArrayList<JButton>();
 
