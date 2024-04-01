@@ -87,7 +87,7 @@ public class ThemeLevelData {
                 "This country is celebrated for its vibrant festivals, delicious cuisine like tacos and enchiladas, and ancient Mayan and Aztec ruins.",
                 "This European country is recognized for its engineering, Oktoberfest beer celebration, and historical figures like Beethoven and Einstein."
         };
-        String[] imagePaths = {"/images/TajMahal.jpg", "Scotland.jpg", "3.jpg", "4.jpg", "5.jpg"};
+        String[] imagePaths = {"/images/india.jpg", "/images/scotland.jpg", "/images/kimono.jpg", "/images/mexico.jpg", "/images/germany.jpg"};
         String[] funFacts = {
                 "India is the world's largest producer of milk, with the dairy industry playing a significant role in the country's economy and agriculture.",
                 "Scotland has more than 790 islands, including the famous Isle of Skye, known for its rugged landscapes, medieval castles, and dramatic coastline.",
@@ -121,7 +121,7 @@ public class ThemeLevelData {
                 "This country is the birthplace of the famous composer Frédéric Chopin and has a dish well-loved around the world, pierogi.",
                 "Famous for its indigenous Maori culture and stunning landscapes that featured prominently in the 'Lord of the Rings' movies."
         };
-        String[] imagePaths = {"path1", "path2", "path3", "path4", "path5"};
+        String[] imagePaths = {"/images/France.png", "/images/japan.jpg", "/images/vietnam.jpg", "/images/poland.png", "/images/NewZealand.png"};
         String[] funFacts = {
                 "The Eiffel Tower was originally intended to be a temporary installation for the 1889 World's Fair, but it was saved from demolition and has since become one of the most iconic landmarks in the world.",
                 "Japan has over 6,800 islands, but approximately 97% of the land area is concentrated on the four largest islands: Honshu, Hokkaido, Kyushu, and Shikoku.",

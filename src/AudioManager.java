@@ -63,9 +63,9 @@
       * Plays menu music.
       */
      public void playMenuMusic() {
-         if (menuMusicClip.isRunning()) menuMusicClip.stop();
-         menuMusicClip.setFramePosition(0);
-         menuMusicClip.start();
+         if (gameplayMusicClip.isRunning()) gameplayMusicClip.stop();
+         if (menuMusicClip.isRunning()) menuMusicClip.setFramePosition(0);
+         else menuMusicClip.start();
      }
  
      /**
@@ -79,9 +79,9 @@
       * Plays the gameplay music.
       */
      public void playGameplayMusic() {
-         if (gameplayMusicClip.isRunning()) gameplayMusicClip.stop();
-         gameplayMusicClip.setFramePosition(0);
-         gameplayMusicClip.start();
+         if (menuMusicClip.isRunning()) menuMusicClip.stop();
+         if (gameplayMusicClip.isRunning()) gameplayMusicClip.setFramePosition(0);
+         else gameplayMusicClip.start();
      }
  
      /**

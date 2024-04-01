@@ -16,14 +16,11 @@ public class Level1Game extends JPanel {
     private JLabel pointsLabel;
     private boolean[] questionAnsweredCorrectly;
     private levelData currentLevelData;
-    ThemeLevelData currentThemeLevelData;
     private int currentQuestionIndex = 0;
     private GameData playerData;
     private LevelSelectionScreen levelSelectionScreen;
     private GameManager gameManager;
     int hintsUsed;
-    private ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen;
-
     String[] questionTitles = {"Question 1", "Question 2", "Question 3", "Question 4", "Question 5"};
 
     public Level1Game(int levelNumber, GameData player, LevelSelectionScreen levelSelectionScreen, GameManager gameManager) {
@@ -161,12 +158,14 @@ public class Level1Game extends JPanel {
     
     private void checkAnswer(String selectedOption, String correctAnswer) {
         if (selectedOption.equals(correctAnswer)) {
+            isAnswerCorrect = true;
             totalPoints += 10; // Or your scoring logic
             pointsLabel.setText("Score: " + totalPoints);
-            JOptionPane.showMessageDialog(this, "Correct!", "Answer", JOptionPane.INFORMATION_MESSAGE);
+            showFunFact(isAnswerCorrect, currentQuestionIndex, correctAnswer);
             goToNextQuestion(); 
         } else {
-            JOptionPane.showMessageDialog(this, "Incorrect!", "Answer", JOptionPane.ERROR_MESSAGE);
+            isAnswerCorrect = false;
+            showFunFact(isAnswerCorrect, currentQuestionIndex, correctAnswer);
             goToNextQuestion(); 
         }
     }
@@ -176,24 +175,38 @@ public class Level1Game extends JPanel {
         nextQuestionButton.setEnabled(true);
     }
 
-    private void showFunFact(boolean isCorrect, int funFactIndex, int questionIndex) {
-        String message = isCorrect ? "Correct! " : "Incorrect. ";
-        message += currentLevelData.funFacts[questionIndex][funFactIndex];
-        JOptionPane.showMessageDialog(this, message, isCorrect ? "Correct Answer" : "Incorrect Answer", JOptionPane.INFORMATION_MESSAGE);
+    private void showFunFact(boolean isCorrect, int questionIndex, String correctAnswer) {
+        if(currentLevelData.funFacts != null && currentLevelData.funFacts.length > questionIndex) {
+            String funFact = currentLevelData.funFacts[questionIndex]; 
+            String message = isCorrect ? "Correct!\n" : "Incorrect. The correct answer is " + correctAnswer +".\n";
+            message += "Fun Fact: " + funFact; 
+            JOptionPane.showMessageDialog(this, message, isCorrect ? "Correct Answer" : "Incorrect Answer", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
+    
+    
+    
+
 
     private void goToNextQuestion() {
         currentQuestionIndex++;
         if (currentQuestionIndex >= questionTitles.length) {
             
-            if (playerData.getLevelCompleted() < levelNumber) {
+            if (playerData.getLevelCompleted() < levelNumber && totalPoints >= 30) {
                 JOptionPane.showMessageDialog(this, "You've completed all questions! Total Points: " + totalPoints, "Congratulations", JOptionPane.INFORMATION_MESSAGE);
                 playerData.setLevelCompleted(levelNumber);
                 playerData.setScore(playerData.getScore() + totalPoints);
                 playerData.setHintsUsed(hintsUsed);
+                gameManager.switchToLevelSelectionScreen(playerData);
             }
-            else{JOptionPane.showMessageDialog(this, "You've completed all questions! This isn't your first time, Sorry No points. ");
-        }
+            else if(playerData.getLevelCompleted() < levelNumber && totalPoints < 30){
+                JOptionPane.showMessageDialog(this, "You've completed all questions! Your score is "+totalPoints+". You need at least 30 points to pass.");
+                gameManager.switchToLevelSelectionScreen(playerData);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "You've completed all questions! This isn't your first time. No points, sorry!");
+                gameManager.switchToLevelSelectionScreen(playerData);
+            }
             // Add the points earned in this level to the player's total score
         
         // Now, save the updated player data back to the JSON file

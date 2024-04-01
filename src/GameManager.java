@@ -105,12 +105,14 @@ public class GameManager implements ActionListener {
     }
     
     public void switchToGameplay(GameData playerData, int selectedLevel, LevelSelectionScreen levelSelectionScreen) {
+        AudioManager.getInstance().playGameplayMusic();
         Level1Game level1Game = new Level1Game(selectedLevel, playerData, levelSelectionScreen, this);
         cardPanel.add(level1Game, "GAME_PLAY");
         cardLayout.show(cardPanel, "GAME_PLAY");
     }
 
     public void switchToGameplay2(GameData playerData, int selectedLevel, ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen) {
+        AudioManager.getInstance().playGameplayMusic();
         Level2Game level2Game = new Level2Game(selectedLevel, playerData, themeBasedModeSelectionScreen, this);
         cardPanel.add(level2Game, "GAME_PLAY");
         cardLayout.show(cardPanel, "GAME_PLAY");

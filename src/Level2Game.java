@@ -18,7 +18,6 @@ public class Level2Game extends JPanel {
     private ThemeLevelData currentLevelData;
     private int currentQuestionIndex = 0;
     private GameData playerData;
-    private LevelSelectionScreen levelSelectionScreen;
     private GameManager gameManager;
     int hintsUsed;
     private ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen;
@@ -70,7 +69,7 @@ public class Level2Game extends JPanel {
         backToMain.addActionListener(e -> {
             gameManager.switchToThemeBasedModeSelectionScreen(playerData);
             AudioManager.getInstance().playButtonClickSound();
-            levelSelectionScreen.activate(); // Assuming you have a method to show the level selection screen
+            themeBasedModeSelectionScreen.activate(); // Assuming you have a method to show the level selection screen
         });
     
         // Add the back button to the back button panel
@@ -165,25 +164,29 @@ public class Level2Game extends JPanel {
     
     private void checkAnswer(String selectedOption, String correctAnswer) {
         if (selectedOption.equals(correctAnswer)) {
+            isAnswerCorrect = true;
             totalPoints += 10; // Or your scoring logic
             pointsLabel.setText("Score: " + totalPoints);
-            JOptionPane.showMessageDialog(this, "Correct!", "Answer", JOptionPane.INFORMATION_MESSAGE);
+            showFunFact(isAnswerCorrect, currentQuestionIndex, correctAnswer);
             goToNextQuestion(); 
         } else {
-            JOptionPane.showMessageDialog(this, "Incorrect!", "Answer", JOptionPane.ERROR_MESSAGE);
+            isAnswerCorrect = false;
+            showFunFact(isAnswerCorrect, currentQuestionIndex, correctAnswer);
             goToNextQuestion(); 
         }
     }
     
     private void enableNextQuestionButton(JButton nextQuestionButton) {
-        // Assuming you have a reference to the next question button
         nextQuestionButton.setEnabled(true);
     }
 
-    private void showFunFact(boolean isCorrect, int funFactIndex, int questionIndex) {
-        String message = isCorrect ? "Correct! " : "Incorrect. ";
-        //message += currentLevelData.funFacts[questionIndex][funFactIndex];
-        JOptionPane.showMessageDialog(this, message, isCorrect ? "Correct Answer" : "Incorrect Answer", JOptionPane.INFORMATION_MESSAGE);
+    private void showFunFact(boolean isCorrect, int questionIndex, String correctAnswer) {
+        if(currentLevelData.funFacts != null && currentLevelData.funFacts.length > questionIndex) {
+            String funFact = currentLevelData.funFacts[questionIndex]; 
+            String message = isCorrect ? "Correct!\n" : "Incorrect. The correct answer is " + correctAnswer +".\n";
+            message += "Fun Fact: " + funFact; 
+            JOptionPane.showMessageDialog(this, message, isCorrect ? "Correct Answer" : "Incorrect Answer", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     private void goToNextQuestion() {
@@ -195,14 +198,16 @@ public class Level2Game extends JPanel {
                 playerData.setLevelCompleted(levelNumber);
                 playerData.setScore(playerData.getScore() + totalPoints);
                 playerData.setHintsUsed(hintsUsed);
+                gameManager.switchToLevelSelectionScreen(playerData);
+            }
+            else{
+                gameManager.switchToLevelSelectionScreen(playerData);
             }
             
             // Add the points earned in this level to the player's total score
         
         // Now, save the updated player data back to the JSON file
         GameDataManager.updatePlayerData(playerData);
-
-            levelSelectionScreen.refreshButtons();
 
             return;
         }
@@ -214,3 +219,4 @@ public class Level2Game extends JPanel {
         isAnswerCorrect = false;
     }
 }
+
