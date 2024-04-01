@@ -1,48 +1,55 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomLevelData {
-    private String question;
-    private String answer;
-    private String hint;
-    private String imagePath;
+    private List<String> questions;
+    private List<String[]> options;
+    private List<String> correctAnswers;
+    private List<String> hints;
+    private List<String> imagePaths;
+    private List<String[]> funFacts;
 
     public CustomLevelData() {
+        this.questions = new ArrayList<>();
+        this.options = new ArrayList<>();
+        this.correctAnswers = new ArrayList<>();
+        this.hints = new ArrayList<>();
+        this.imagePaths = new ArrayList<>();
+        this.funFacts = new ArrayList<>();
     }
 
-    public CustomLevelData(String question, String answer, String hint, String imagePath) {
-        this.question = question;
-        this.answer = answer;
-        this.hint = hint;
-        this.imagePath = imagePath;
+    // Add a question and its details
+    public void addQuestion(String question, String[] options, String correctAnswer, String hint, String imagePath, String[] funFact) {
+        this.questions.add(question);
+        this.options.add(options);
+        this.correctAnswers.add(correctAnswer);
+        this.hints.add(hint);
+        this.imagePaths.add(imagePath);
+        this.funFacts.add(funFact);
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    // Getters
+    public List<String> getQuestions() {
+        return questions;
     }
 
-    public String getQuestion() {
-        return question;
+    public List<String[]> getOptions() {
+        return options;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public List<String> getCorrectAnswers() {
+        return correctAnswers;
     }
 
-    public String getAnswer() {
-        return answer;
+    public List<String> getHints() {
+        return hints;
     }
 
-    public void setHint(String hint) {
-        this.hint = hint;
+    public List<String> getImagePaths() {
+        return imagePaths;
     }
 
-    public String getHint() {
-        return hint;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public String getImagePath() {
-        return imagePath;
+    public List<String[]> getFunFacts() {
+        return funFacts;
     }
 }

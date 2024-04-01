@@ -173,5 +173,13 @@ public class GameManager implements ActionListener {
         EventQueue.invokeLater(() -> new GameManager());
     }
 
+    public void switchToViewL(GameData playerData) {
+        //CustomLevelLoader customLevelLoader = new CustomLevelLoader();
+        //GameData customLevelData = customLevelLoader.loadCustomLevel(playerData.getPlayerUsername());
+        CustomLevelViewer customLevelViewer = new CustomLevelViewer(this, playerData);
+        cardPanel.add(customLevelViewer, "VIEW");
+        cardLayout.show(cardPanel, "VIEW");
+    }
+
 
 }

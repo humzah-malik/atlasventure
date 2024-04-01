@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class CustomLevelCreator extends JFrame {
     private ArrayList<CustomLevelData> customLevels = new ArrayList<>();
     
-    private JTextField questionField, option1Field, option2Field, option3Field, option4Field, correctAnswerField, hintField, imagePathField, funFactField;
+    private JTextField questionField, option1Field, option2Field, option3Field, option4Field, correctAnswerField, hintField, imagePathField;
+    private JTextArea funFactField;
     private JButton addButton, saveButton;
     private GameData playerData;
 
@@ -57,8 +58,11 @@ public class CustomLevelCreator extends JFrame {
         imagePathField = new JTextField("Path to image");
         add(imagePathField);
         
-        funFactField = new JTextField("Fun fact");
-        add(funFactField);
+        funFactField = new JTextArea("Fun fact");
+        funFactField.setLineWrap(true);
+        funFactField.setWrapStyleWord(true);
+        JScrollPane funFactScrollPane = new JScrollPane(funFactField);
+        add(funFactScrollPane);
     }
 
     private void addAction(ActionEvent e) {
@@ -66,9 +70,10 @@ public class CustomLevelCreator extends JFrame {
         String correctAnswer = correctAnswerField.getText();
         String hint = hintField.getText();
         String imagePath = imagePathField.getText();
-        String funFact = funFactField.getText();
+        String[] funFacts = funFactField.getText().split("\n"); // Assuming fun facts are separated by newlines
 
-        CustomLevelData customLevelData = new CustomLevelData(questionField.getText(), correctAnswer, hint, imagePath);
+        CustomLevelData customLevelData = new CustomLevelData();
+        customLevelData.addQuestion(questionField.getText(), options, correctAnswer, hint, imagePath, funFacts);
         customLevels.add(customLevelData);
 
         clearFields();
@@ -76,10 +81,10 @@ public class CustomLevelCreator extends JFrame {
 
     private void clearFields() {
         questionField.setText("");
-        option1Field.setText("");
-        option2Field.setText("");
-        option3Field.setText("");
-        option4Field.setText("");
+        option1Field.setText("Option 1");
+        option2Field.setText("Option 2");
+        option3Field.setText("Option 3");
+        option4Field.setText("Option 4");
         correctAnswerField.setText("");
         hintField.setText("");
         imagePathField.setText("");
@@ -88,17 +93,12 @@ public class CustomLevelCreator extends JFrame {
 
     private void saveAction(ActionEvent e) {
         if (!customLevels.isEmpty()) {
+            // Assuming saveCustomLevels method now accepts ArrayList<CustomLevelData>
             CustomLevelSaver.saveCustomLevels(playerData.getPlayerUsername(), customLevels);
             JOptionPane.showMessageDialog(this, "Level saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             dispose(); // Close the window after saving
         } else {
             JOptionPane.showMessageDialog(this, "No questions added. Please add questions before saving.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    public static void main(String[] args) {
-        // Assume playerData is retrieved or created elsewhere
-        GameData playerData = new GameData(); // Example, replace with actual player data retrieval
-        new CustomLevelCreator(playerData);
     }
 }

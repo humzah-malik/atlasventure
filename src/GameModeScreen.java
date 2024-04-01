@@ -65,25 +65,25 @@ public class GameModeScreen extends GameScreen {
         createMode.setForeground(Color.black);
         createMode.setSize(150, 50);
         createMode.setLocation((SCREEN_WIDTH - createMode.getWidth()) / 2, 400);
-        this.add(createMode);
+        //this.add(createMode);
         
         menuOptions = new ArrayList<>();
     
     JButton classicButton = new JButton("Classic");
     JButton themeBasedButton = new JButton("Theme-Based");
-    JButton myQuestionSetButton = new JButton("My Question Set");
-    JButton createQuestionSetButton = new JButton("Create Question Set");
+    //JButton myQuestionSetButton = new JButton("My Question Set");
+    //JButton createQuestionSetButton = new JButton("Create Question Set");
     
     menuOptions.add(classicButton);
     menuOptions.add(themeBasedButton);
-    menuOptions.add(myQuestionSetButton);
-    menuOptions.add(createQuestionSetButton);
+    //menuOptions.add(myQuestionSetButton);
+    //menuOptions.add(createQuestionSetButton);
     
     // Define the action commands for each button
     classicButton.setActionCommand("LEVEL_SELECT");
     themeBasedButton.setActionCommand("THEME_MODE");
-    myQuestionSetButton.setActionCommand("MY_QUESTION_SET");
-    createQuestionSetButton.setActionCommand("CREATE_LEVEL");
+    //myQuestionSetButton.setActionCommand("VIEW");
+    //createQuestionSetButton.setActionCommand("CREATE_LEVEL");
     
     // Add a single ActionListener for all buttons and handle based on action command
     ActionListener buttonListener = e -> {
@@ -96,8 +96,8 @@ public class GameModeScreen extends GameScreen {
             case "THEME_MODE":
                 gameManager.switchToThemeBasedModeSelectionScreen(playerData);
                 break;
-            case "MY_QUESTION_SET":
-                gameManager.changeGameState("MY_QUESTION_SET");
+            case "VIEW":
+                gameManager.switchToViewL(playerData);
                 break;
             case "CREATE_LEVEL":
                 gameManager.switchToCreateL(playerData);
@@ -108,8 +108,8 @@ public class GameModeScreen extends GameScreen {
     // Assign the listener to each button
     classicButton.addActionListener(buttonListener);
     themeBasedButton.addActionListener(buttonListener);
-    myQuestionSetButton.addActionListener(buttonListener);
-    createQuestionSetButton.addActionListener(buttonListener);
+   // myQuestionSetButton.addActionListener(buttonListener);
+    //createQuestionSetButton.addActionListener(buttonListener);
         
         for(int i = 0, y = 180; i < menuOptions.size(); i++, y+=60) {
 			JButton currentButton = menuOptions.get(i);

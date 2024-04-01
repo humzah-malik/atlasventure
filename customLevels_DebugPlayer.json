@@ -1,1 +1,1 @@
-[{"question":"Enter question here","answer":"Correct Answer","hint":"Hint for question","imagePath":"Path to image"},{"question":"sdf","answer":"sdf","hint":"sdf","imagePath":"sdf"}]
+[{"questions":["Enter question here"],"options":[["Option 1","Option 2","Option 3","Option 4"]],"correctAnswers":["1"],"hints":["Hint for question"],"imagePaths":["Path to image"],"funFacts":[["Fun fact"]]}]

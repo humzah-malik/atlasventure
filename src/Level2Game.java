@@ -23,7 +23,7 @@ public class Level2Game extends JPanel {
     int hintsUsed;
     private ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen;
 
-    String[] questionTitles = {"Question 1", "Question 2", "Question 3", "Question 4", "Question 5"};
+    String[] questionTitles;
 
     public Level2Game(int levelNumber, GameData player, ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen, GameManager gameManager) {
         this.themeBasedModeSelectionScreen = themeBasedModeSelectionScreen;
@@ -36,6 +36,7 @@ public class Level2Game extends JPanel {
     }
 
     private void initialize() {
+        questionTitles = currentLevelData.questions;
         setLayout(new BorderLayout());
         setBackground(Color.gray);
         setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -107,7 +108,7 @@ public class Level2Game extends JPanel {
     
         // Title label setup
         JLabel titleLabel = new JLabel(questionTitle, SwingConstants.CENTER);
-        titleLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+        titleLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
         titleLabel.setForeground(Color.WHITE);
         panel.add(titleLabel, BorderLayout.NORTH);
     
@@ -195,8 +196,7 @@ public class Level2Game extends JPanel {
                 playerData.setScore(playerData.getScore() + totalPoints);
                 playerData.setHintsUsed(hintsUsed);
             }
-            else{JOptionPane.showMessageDialog(this, "You've completed all questions! This isn't your first time, Sorry No points. ");
-        }
+            
             // Add the points earned in this level to the player's total score
         
         // Now, save the updated player data back to the JSON file
