@@ -98,11 +98,6 @@ public class GameManager implements ActionListener {
         cardLayout.show(cardPanel, "LEVEL_SELECT_DEBUG");
     }
 
-    public void switchToCreateL(GameData playerData) {
-        CustomLevelCreator customLevelCreator = new CustomLevelCreator(playerData);
-        cardPanel.add(customLevelCreator, "CREATE_LEVEL");
-        cardLayout.show(cardPanel, "CREATE_LEVEL");
-    }
     
     public void switchToGameplay(GameData playerData, int selectedLevel, LevelSelectionScreen levelSelectionScreen) {
         AudioManager.getInstance().playGameplayMusic();
@@ -175,13 +170,6 @@ public class GameManager implements ActionListener {
         EventQueue.invokeLater(() -> new GameManager());
     }
 
-    public void switchToViewL(GameData playerData) {
-        //CustomLevelLoader customLevelLoader = new CustomLevelLoader();
-        //GameData customLevelData = customLevelLoader.loadCustomLevel(playerData.getPlayerUsername());
-        CustomLevelViewer customLevelViewer = new CustomLevelViewer(this, playerData);
-        cardPanel.add(customLevelViewer, "VIEW");
-        cardLayout.show(cardPanel, "VIEW");
-    }
 
 
 }
