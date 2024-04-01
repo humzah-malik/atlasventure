@@ -201,18 +201,21 @@ public class Level2Game extends JPanel {
                 playerData.setScore(playerData.getScore() + totalPoints);
                 playerData.setHintsUsed(hintsUsed);
                 AudioManager.getInstance().playMenuMusic();
-                gameManager.switchToLevelSelectionScreen(playerData);
+                gameManager.switchToThemeBasedModeSelectionScreen(playerData);
             }
             else{
                 AudioManager.getInstance().playMenuMusic();
-                gameManager.switchToLevelSelectionScreen(playerData);
+                gameManager.switchToThemeBasedModeSelectionScreen(playerData);
             }
             
             // Add the points earned in this level to the player's total score
         
         // Now, save the updated player data back to the JSON file
-        GameDataManager.updatePlayerData(playerData);
-
+            if(playerData.getPlayerUsername() == "DebugPlayer"){
+            }
+            else{
+                GameDataManager.updatePlayerData(playerData);
+            }
             levelSelectionScreen.refreshButtons();
 
             return;
