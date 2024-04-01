@@ -66,12 +66,12 @@ public class TutorialScreen extends GameScreen {
 		score.setToolTipText("<html>This is your score.<br/>You will be awarded points<br/>for each correct answer.</html>");
 		this.add(score);
 		
-		JButton hintsLeft = new JButton();
-		hintsLeft.setIcon(optionsIcon);
-		hintsLeft.setBounds(700, 40, 60, 60);
-		hintsLeft.setBackground(null);
-		hintsLeft.setToolTipText("<html>This is the amount<br/>of hints you have left.</html>");
-		this.add(hintsLeft);
+		//JButton hintsLeft = new JButton();
+		//hintsLeft.setIcon(optionsIcon);
+		//hintsLeft.setBounds(700, 40, 60, 60);
+		//hintsLeft.setBackground(null);
+		//hintsLeft.setToolTipText("<html>This is the amount<br/>of hints you have left.</html>");
+		//this.add(hintsLeft);
 		
 		JButton location = new JButton();
 		location.setIcon(optionsIcon);
@@ -96,7 +96,7 @@ public class TutorialScreen extends GameScreen {
 		
 		this.setComponentZOrder(options, 0);
 		this.setComponentZOrder(score, 0);
-		this.setComponentZOrder(hintsLeft, 0);
+		//this.setComponentZOrder(hintsLeft, 0);
 		this.setComponentZOrder(location, 0);
 		this.setComponentZOrder(answer, 0);
 		this.setComponentZOrder(hint, 0);

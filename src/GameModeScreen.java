@@ -83,7 +83,7 @@ public class GameModeScreen extends GameScreen {
     classicButton.setActionCommand("LEVEL_SELECT");
     themeBasedButton.setActionCommand("THEME_MODE");
     myQuestionSetButton.setActionCommand("MY_QUESTION_SET");
-    createQuestionSetButton.setActionCommand("CREATE_QUESTION_SET");
+    createQuestionSetButton.setActionCommand("CREATE_LEVEL");
     
     // Add a single ActionListener for all buttons and handle based on action command
     ActionListener buttonListener = e -> {
@@ -99,8 +99,8 @@ public class GameModeScreen extends GameScreen {
             case "MY_QUESTION_SET":
                 gameManager.changeGameState("MY_QUESTION_SET");
                 break;
-            case "CREATE_QUESTION_SET":
-                gameManager.changeGameState("CREATE_QUESTION_SET");
+            case "CREATE_LEVEL":
+                gameManager.switchToCreateL(playerData);
                 break;
         }
     };

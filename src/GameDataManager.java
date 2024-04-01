@@ -1,5 +1,5 @@
 //GameDataManager.java
-
+import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 public class GameDataManager {
     static final String FILE_PATH = "game_data.json";
+    private static final String Q_FILE_PATH = "questionSets.json";
 
     public static void saveGameData(HashMap < String, GameData > gameDataMap, String filePath) {
         filePath = getCorrectJSONPath(filePath);
@@ -81,7 +82,16 @@ public class GameDataManager {
         }
         return null;
     }
-
+    public static void updatePlayerData(GameData updatedPlayerData) {
+        // Load the current game data map from the JSON file
+        HashMap<String, GameData> gameDataMap = loadGameData("game_data.json");
+        
+        // Update the player's data within the map
+        gameDataMap.put(updatedPlayerData.getPlayerUsername(), updatedPlayerData);
+        
+        // Save the updated game data map back to the JSON file
+        saveGameData(gameDataMap, "game_data.json");
+    }
     public static ArrayList < String > getUsernamesInFile(String fileContents) {
         ArrayList < String > result = new ArrayList < > ();
         Pattern pattern = Pattern.compile("\"username\"\\s*:\\s*\"([^\"]+)\"", Pattern.CASE_INSENSITIVE);
@@ -109,24 +119,25 @@ public class GameDataManager {
     }
 
     public static List<GameData> getTopScores(String filePath) {
-        HashMap<String, GameData> gameDataMap = loadGameData(filePath); // Assuming you have this method
+        HashMap<String, GameData> gameDataMap = loadGameData(filePath); 
         
-        if (gameDataMap == null) return new ArrayList<>(); // Handle case where data couldn't be loaded
+        if (gameDataMap == null) return new ArrayList<>();
 
-        // Convert the values of the map to a stream, sort it by score in descending order, limit to top 5, and collect to a list
+       
         return gameDataMap.values().stream()
                 .sorted((data1, data2) -> Integer.compare(data2.getScore(), data1.getScore()))
                 .limit(5)
                 .collect(Collectors.toList());
     }
     public static List<GameData> getInfo(String filePath) {
-        HashMap<String, GameData> gameDataMap = loadGameData(filePath); // Assuming you have this method
+        HashMap<String, GameData> gameDataMap = loadGameData(filePath); 
         
-        if (gameDataMap == null) return new ArrayList<>(); // Handle case where data couldn't be loaded
+        if (gameDataMap == null) return new ArrayList<>(); 
 
-        // Convert the values of the map to a stream, sort it by score in descending order, limit to top 5, and collect to a list
         return gameDataMap.values().stream()
                 .sorted((data1, data2) -> Integer.compare(data2.getScore(), data1.getScore()))
                 .collect(Collectors.toList());
     }
+
+    
 }

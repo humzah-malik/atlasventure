@@ -100,25 +100,21 @@ public class LoadGameScreen extends GameScreen {
 
     @Override
     public void updateScreen() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'updateScreen'");
     }
 
     @Override
     public void activate() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'activate'");
     }
 
     @Override
     public void deactivate() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deactivate'");
     }
 
     @Override
     protected void handleInput(String actionCommand) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleInput'");
     }
 }

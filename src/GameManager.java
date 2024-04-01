@@ -44,20 +44,11 @@ public class GameManager implements ActionListener {
         LoadGameScreen loadGameScreen = new LoadGameScreen(this);
         cardPanel.add(loadGameScreen, "LOAD_GAME");
 
-        //HighScoreScreen highScoreScreen = new HighScoreScreen(this);
-        //cardPanel.add(highScoreScreen, "HIGH_SCORES");
-
         DebugMode dpassScreen = new DebugMode(this);
         cardPanel.add(dpassScreen, "DEBUG_MODE");
 
-        //GameplayScreen gameplayScreen = new GameplayScreen(this);
-        //cardPanel.add(gameplayScreen, "GAMEPLAY");
-
         TutorialScreen tutorialScreen = new TutorialScreen(this);
         cardPanel.add(tutorialScreen, "TUTORIAL");
-
-        //GameModeScreen gameModeScreen = new GameModeScreen(this);
-        //cardPanel.add(gameModeScreen, "GAME_MODE");
 
         // Add the card panel to the main frame
         mainFrame.add(cardPanel);
@@ -106,7 +97,25 @@ public class GameManager implements ActionListener {
         cardPanel.add(levelSelectionScreen, "LEVEL_SELECT_DEBUG");
         cardLayout.show(cardPanel, "LEVEL_SELECT_DEBUG");
     }
+
+    public void switchToCreateL(GameData playerData) {
+        CustomLevelCreator customLevelCreator = new CustomLevelCreator(playerData);
+        cardPanel.add(customLevelCreator, "CREATE_LEVEL");
+        cardLayout.show(cardPanel, "CREATE_LEVEL");
+    }
     
+    public void switchToGameplay(GameData playerData, int selectedLevel, LevelSelectionScreen levelSelectionScreen) {
+        Level1Game level1Game = new Level1Game(selectedLevel, playerData, levelSelectionScreen, this);
+        cardPanel.add(level1Game, "GAME_PLAY");
+        cardLayout.show(cardPanel, "GAME_PLAY");
+    }
+
+    public void switchToGameplay2(GameData playerData, int selectedLevel, ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen) {
+        Level2Game level2Game = new Level2Game(selectedLevel, playerData, themeBasedModeSelectionScreen, this);
+        cardPanel.add(level2Game, "GAME_PLAY");
+        cardLayout.show(cardPanel, "GAME_PLAY");
+    }
+
     public void showHighScores() {
         List<GameData> topScores = GameDataManager.getTopScores("game_data.json");
         HighScoreScreen highScoreScreen = new HighScoreScreen(this, topScores); 
@@ -163,5 +172,6 @@ public class GameManager implements ActionListener {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> new GameManager());
     }
+
 
 }

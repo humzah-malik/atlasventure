@@ -64,9 +64,48 @@ for (int i = 0; i < 5; i++) { // Assuming 5 levels for simplicity
         else return " - Locked";
     }
 
+    JButton [] levelButtons = new JButton [5];
+    private void initalizeButtons()
+    {
+        // Dynamically create level buttons based on player progress
+        int levelsCompleted = playerData.getLevelCompleted();
+        for (int i = 0; i < 5; i++) { // Assuming 5 levels for simplicity
+            String buttonText = "Level " + (i + 1) + getStatus(i, levelsCompleted);
+            JButton levelButton = new JButton(buttonText);
+            levelButton.setBounds(250, 100 + i * 80, 300, 50); // Adjust button position and size
+            levelButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+            levelButton.setBackground(Color.white);
+            levelButton.setEnabled(i <= levelsCompleted); // Unlock current and next level
+
+            final int level = i + 1; // Effectively final copy of i for use in lambda
+            levelButton.addActionListener(e -> selectLevel(level));
+            this.add(levelButton);
+            levelButtons [i] = levelButton;
+
+        }
+
+    }
+     public void refreshButtons ()
+     {
+         for (int i = 0; i< levelButtons.length; i++)
+         {
+             JButton levelButton = levelButtons[i];
+             levelButton.setBounds(250, 100 + i * 80, 300, 50); // Adjust button position and size
+             levelButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+             levelButton.setBackground(Color.white);
+             levelButton.setEnabled(i <= playerData.getLevelCompleted()); // Unlock current and next level
+             String buttonText = "Level " + (i + 1) + getStatus(i, playerData.getLevelCompleted());
+             levelButton.setText(buttonText);
+
+         }
+
+     }
+
     private void selectLevel(int levelNumber) {
         System.out.println("Selected Level: " + levelNumber);
-        // inform the GameManager to switch to the game play screen for this level
+        JFrame frame = new JFrame("Level " + levelNumber + " Game");
+        Level1Game level1Game = new Level1Game(levelNumber,playerData, this, gameManager);
+        gameManager.switchToGameplay(playerData, levelNumber, this);
     }
 
     @Override
@@ -88,4 +127,6 @@ for (int i = 0; i < 5; i++) { // Assuming 5 levels for simplicity
     protected void handleInput(String actionCommand) {
         // Implement input handling if necessary
     }
+
+    
 }

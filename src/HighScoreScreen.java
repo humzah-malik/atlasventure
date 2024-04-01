@@ -92,7 +92,6 @@ public HighScoreScreen(GameManager gameManager, List<GameData> topScores) {
 
 	@Override
 	protected void handleInput(String actionCommand) {
-		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'handleInput'");
 	}
 }

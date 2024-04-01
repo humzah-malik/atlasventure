@@ -12,9 +12,15 @@ Kn��L���:"
 "levelsLeft": [],
 "password": "z�J<�?���/��zaT��Hj"
 },{"username": "Jon",
-"score": 0,
-"hintsUsed": 0,
-"levelCompleted": 0,
+"score": 50,
+"hintsUsed": 1,
+"levelCompleted": 1,
+"levelsLeft": [],
+"password": "z�J<�?���/��zaT��Hj"
+},{"username": "jon",
+"score": 150,
+"hintsUsed": 4,
+"levelCompleted": 2,
 "levelsLeft": [],
 "password": "z�J<�?���/��zaT��Hj"
 },{"username": "Hersh",
@@ -29,6 +35,12 @@ Kn��L���:"
 "levelCompleted": 4,
 "levelsLeft": [],
 "password": "z�J<�?���/��zaT��Hj"
+},{"username": "DebugPlayer",
+"score": 9999,
+"hintsUsed": 0,
+"levelCompleted": 5,
+"levelsLeft": [1,2,3,4,5],
+"password": "null"
 },{"username": "Symere",
 "score": 400,
 "hintsUsed": 0,
@@ -58,7 +70,8 @@ Kn��L���:"
 "hintsUsed": 0,
 "levelCompleted": 0,
 "levelsLeft": [],
-"password": "	v�[)��Kn��L���:"
+"password": "	v�[)��
+Kn��L���:"
 },{"username": "bob",
 "score": 0,
 "hintsUsed": 0,
@@ -75,6 +88,12 @@ Kn��L���:"
 "score": 0,
 "hintsUsed": 0,
 "levelCompleted": 0,
+"levelsLeft": [],
+"password": "z�J<�?���/��zaT��Hj"
+},{"username": "Ali",
+"score": 50,
+"hintsUsed": 1,
+"levelCompleted": 1,
 "levelsLeft": [],
 "password": "z�J<�?���/��zaT��Hj"
 }]

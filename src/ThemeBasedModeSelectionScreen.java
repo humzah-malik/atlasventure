@@ -59,7 +59,7 @@ public class ThemeBasedModeSelectionScreen extends GameScreen {
             currentButton.setBounds(250, y, 300, 50);
             currentButton.setBackground(Color.white);
             currentButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-            currentButton.addActionListener(new ThemeModeActionListener(gameManager, currentButton.getText()));
+            currentButton.addActionListener(new ThemeModeActionListener(gameManager, currentButton.getText(), i, this, playerData));
             this.add(currentButton);
         }
     }
@@ -86,16 +86,23 @@ public class ThemeBasedModeSelectionScreen extends GameScreen {
     private class ThemeModeActionListener implements ActionListener {
         private final GameManager gameManager;
         private final String themeMode;
+        private final ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen;
+        private final GameData playerData;
+        int i;
 
-        public ThemeModeActionListener(GameManager gameManager, String themeMode) {
+        public ThemeModeActionListener(GameManager gameManager, String themeMode, int i, ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen, GameData playerData) {
             this.gameManager = gameManager;
             this.themeMode = themeMode;
+            this.i=i;
+            this.themeBasedModeSelectionScreen = themeBasedModeSelectionScreen;
+            this.playerData = playerData;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
             AudioManager.getInstance().playButtonClickSound();
             System.out.println("Selected theme mode: " + themeMode);
+            gameManager.switchToGameplay2(playerData, i, themeBasedModeSelectionScreen);
         }
     }
 }
