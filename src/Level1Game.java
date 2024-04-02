@@ -292,12 +292,15 @@
              // Add the points earned in this level to the player's total score
          
          // Now, save the updated player data back to the JSON file
-         GameDataManager.updatePlayerData(playerData);
- 
-             levelSelectionScreen.refreshButtons();
- 
-             return;
-         }
+         if(playerData.getPlayerUsername() == "DebugPlayer"){
+        }
+        else{
+            GameDataManager.updatePlayerData(playerData);
+        }
+        levelSelectionScreen.refreshButtons();
+
+        return;
+    }
  
  
          cardLayout.show(cardsPanel, "Question" + currentQuestionIndex);
