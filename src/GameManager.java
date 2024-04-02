@@ -80,6 +80,7 @@ public class GameManager implements ActionListener {
 
     public void switchToLevelSelectionScreen(GameData currentPlayerData) {
         LevelSelectionScreen levelSelectionScreen = new LevelSelectionScreen(this, currentPlayerData);
+        AudioManager.getInstance().stopGameplayMusic();
         cardPanel.add(levelSelectionScreen, "LEVEL_SELECT");
         cardLayout.show(cardPanel, "LEVEL_SELECT");
     }
@@ -91,6 +92,7 @@ public class GameManager implements ActionListener {
     }
 
     public void switchToThemeBasedModeSelectionScreen(GameData currentPlayerData) {
+        AudioManager.getInstance().stopGameplayMusic();
         ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen = new ThemeBasedModeSelectionScreen(this, currentPlayerData);
         cardPanel.add(themeBasedModeSelectionScreen, "THEME_MODE");
         cardLayout.show(cardPanel, "THEME_MODE");
