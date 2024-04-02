@@ -68,7 +68,7 @@ public class Level2Game extends JPanel {
         backToMain.setBorderPainted(false);
         backToMain.setContentAreaFilled(false);
         backToMain.addActionListener(e -> {
-            AudioManager.getInstance().playMenuMusic();
+            //AudioManager.getInstance().playMenuMusic();
             gameManager.switchToThemeBasedModeSelectionScreen(playerData);
             AudioManager.getInstance().playButtonClickSound();
             levelSelectionScreen.activate(); // Assuming you have a method to show the level selection screen
