@@ -59,334 +59,331 @@ Building index for all the packages and classes...
 Standard Doclet version 21.0.1+12-LTS-29
 Building tree for all the packages and classes...
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\AudioManager.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:48: warning: no main description
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:49: warning: no main description
       * @param args
         ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:48: warning: no description for @param
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:49: warning: no description for @param
       * @param args
-        ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:49: warning: no description for @throws
-      * @throws UnsupportedAudioFileException
         ^
 c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:50: warning: no description for @throws
-      * @throws LineUnavailableException
-        ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:51: warning: no description for @throws
-      * @throws IOException
-        ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:120: warning: no description for @throws
       * @throws UnsupportedAudioFileException
         ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:121: warning: no description for @throws
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:51: warning: no description for @throws
+      * @throws LineUnavailableException
+        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:52: warning: no description for @throws
       * @throws IOException
         ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:12: warning: no comment
- public class AudioManager {
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:121: warning: no description for @throws
+      * @throws UnsupportedAudioFileException
         ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:127: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:122: warning: no description for @throws
+      * @throws IOException
+        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\AudioManager.java:131: warning: no @return
      public static AudioManager getInstance() {
                                 ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\DebugMode.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\DebugMode.java:6: warning: no comment
-public class DebugMode extends JPanel {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\DebugMode.java:10: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\DebugMode.java:23: warning: no comment
     public DebugMode(GameManager gameManager) {
            ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\GameData.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:30: warning: no main description
-     * @param input
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:30: warning: no description for @param
-     * @param input
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:31: error: unknown tag: Integer
-     * @return ArrayList<Integer>
-                        ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:7: warning: no comment
-public class GameData {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:15: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:29: warning: no comment
     public GameData() {
            ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:19: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:38: warning: no comment
     public GameData(String playerUsername, int score, int hintsUsed, int levelCompleted,
            ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:151: warning: no comment
-    public int getHintsUsed() {
-               ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:159: warning: no comment
-    public int getLevelCompleted() {
-               ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:167: warning: no comment
-    public ArrayList < Integer > getLevelsLeft() {
-                                 ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:122: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:161: warning: no comment
     public String getLevelsLeftString() {
                   ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:175: warning: no comment
-    public String getPassword() {
-                  ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:135: warning: no comment
-    public String getPlayerUsername() {
-                  ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:143: warning: no comment
-    public int getScore() {
-               ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:48: warning: no comment
-    public boolean loadDataFromString(String str, String username) {
-                   ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:155: warning: no comment
-    public void setHintsUsed(int hintsUsed) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:163: warning: no comment
-    public void setLevelCompleted(int levelCompleted) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:171: warning: no comment
-    public void setLevelsLeft(ArrayList < Integer > levelsLeft) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:179: warning: no comment
-    public void setPassword(String password) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:139: warning: no comment
-    public void setPlayerUsername(String playerUsername) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameData.java:147: warning: no comment
-    public void setScore(int score) {
-                ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\GameDataManager.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:25: warning: no main description
-     * @param gameDataMap
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:25: warning: no description for @param
-     * @param gameDataMap
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:26: warning: no description for @param
-     * @param filePath
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:62: warning: no main description
-     * @param filePath
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:62: warning: no description for @param
-     * @param filePath
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:63: error: malformed HTML
-     * @return HashMap<String, GameData>
-                      ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:19: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:90: error: malformed HTML
+     * @return A HashMap<String, GameData> is being returned from the loadGameData method.
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:32: warning: use of default constructor, which does not provide a comment
 public class GameDataManager {
        ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:19: warning: use of default constructor, which does not provide a comment
-public class GameDataManager {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:115: warning: no comment
-    public static String getCorrectJSONPath(String filePath) {
-                         ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:142: warning: no comment
-    public static List<GameData> getInfo(String filePath) {
-                                 ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:131: warning: no comment
-    public static List<GameData> getTopScores(String filePath) {
-                                 ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:105: warning: no comment
-    public static ArrayList < String > getUsernamesInFile(String fileContents) {
-                                       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:121: warning: no comment
-    public static String toSHA1(String str) {
-                         ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameDataManager.java:95: warning: no comment
-    public static void updatePlayerData(GameData updatedPlayerData) {
-                       ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\GameFrame.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameFrame.java:4: warning: no comment
-public class GameFrame extends JFrame {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameFrame.java:6: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameFrame.java:15: warning: no comment
 	public GameFrame() {
 	       ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\GameManager.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:10: warning: no comment
-public class GameManager implements ActionListener {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:17: warning: no comment
-    public GameManager() {
-           ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:68: warning: no comment
-    public void changeGameState(String newState) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:163: warning: no comment
-    public void closeGame() {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:169: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:280: warning: no @param for args
     public static void main(String[] args) {
                        ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:116: warning: no comment
-    public void showHighScores() {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:123: warning: no comment
-    public void showInstructorDashboard() {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:95: warning: no comment
-    public void switchToDebugLevelSelection(GameData debugData) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:83: warning: no comment
-    public void switchToGameModeScreen(GameData currentPlayerData) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:102: warning: no comment
-    public void switchToGameplay(GameData playerData, int selectedLevel, LevelSelectionScreen levelSelectionScreen) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:109: warning: no comment
-    public void switchToGameplay2(GameData playerData, int selectedLevel, ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:77: warning: no comment
-    public void switchToLevelSelectionScreen(GameData currentPlayerData) {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:89: warning: no comment
-    public void switchToThemeBasedModeSelectionScreen(GameData currentPlayerData) {
-                ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameManager.java:26: warning: no comment
+    public GameManager() {
+           ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\GameModeScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameScreen.java:30: warning: no @param for actionCommand
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameScreen.java:48: warning: no @param for actionCommand
     protected abstract void handleInput(String actionCommand);
                             ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameModeScreen.java:13: warning: no comment
-public class GameModeScreen extends GameScreen {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameModeScreen.java:20: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameModeScreen.java:29: warning: no comment
 	public GameModeScreen(GameManager gameManager, GameData playerData)	{
 	       ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\GameScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameScreen.java:3: warning: no comment
-public abstract class GameScreen extends JPanel {
-                ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameScreen.java:3: warning: use of default constructor, which does not provide a comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameScreen.java:21: warning: use of default constructor, which does not provide a comment
 public abstract class GameScreen extends JPanel {
                 ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\HighScoreScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\HighScoreScreen.java:9: warning: no comment
-public class HighScoreScreen extends GameScreen {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\HighScoreScreen.java:16: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\HighScoreScreen.java:29: warning: no comment
 public HighScoreScreen(GameManager gameManager, List<GameData> topScores) {
        ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\InstructorDashboardScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\InstructorDashboardScreen.java:8: warning: no comment
-public class InstructorDashboardScreen extends GameScreen {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\InstructorDashboardScreen.java:17: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\InstructorDashboardScreen.java:29: warning: no comment
     public InstructorDashboardScreen(GameManager gameManager) {
            ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\Level1Game.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:8: warning: no comment
-public class Level1Game extends JPanel {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:26: warning: no comment
-    public Level1Game(int levelNumber, GameData player, LevelSelectionScreen levelSelectionScreen, GameManager gameManager) {
-           ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:39: warning: no comment
+     public Level1Game(int levelNumber, GameData player, LevelSelectionScreen levelSelectionScreen, GameManager gameManager) {
+            ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\Level2Game.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:8: warning: no comment
-public class Level2Game extends JPanel {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:28: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:39: warning: no comment
     public Level2Game(int levelNumber, GameData player, ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen, GameManager gameManager) {
            ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\levelData.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:1: warning: no comment
-public class levelData {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:11: warning: no comment
-    public String [] correctAnswers;
-                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:14: warning: no comment
-    public String [] funFacts;
-                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:12: warning: no comment
-    public String [] hints;
-                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:13: warning: no comment
-    public String [] imagePaths;
-                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:10: warning: no comment
-    public String [][] options;
-                       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:16: warning: no comment
-    public levelData(int level)
-           ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:2: warning: no comment
-    public void initalize(String [][] options, String [] correctAnswers, String [] hints, String [] imagePaths, String [] funFacts)
-                ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:38: warning: no comment
+        public String [] correctAnswers;
+                         ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:41: warning: no comment
+        public String [] funFacts;
+                         ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:39: warning: no comment
+        public String [] hints;
+                         ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:40: warning: no comment
+        public String [] imagePaths;
+                         ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:37: warning: no comment
+        public String [][] options;
+                           ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\levelData.java:47: warning: no comment
+        public levelData(int level)
+               ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\LevelSelectionScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LevelSelectionScreen.java:5: warning: no comment
-public class LevelSelectionScreen extends GameScreen {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LevelSelectionScreen.java:12: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LevelSelectionScreen.java:20: warning: no comment
     public LevelSelectionScreen(GameManager gameManager, GameData playerData) {
            ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LevelSelectionScreen.java:88: warning: no comment
-     public void refreshButtons ()
-                 ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\LoadGameScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LoadGameScreen.java:6: warning: no comment
-public class LoadGameScreen extends GameScreen {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LoadGameScreen.java:14: warning: no comment
-    public LoadGameScreen(GameManager gameManager) {
-           ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\MainMenuScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:7: warning: no comment
-public class MainMenuScreen extends GameScreen {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:16: warning: no comment
-	public MainMenuScreen(GameManager gameManager) {
-	       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:117: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:28: warning: no comment
+    public MainMenuScreen(GameManager gameManager) {
+           ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:134: warning: no comment
 	public void selectNextOption() {
 	            ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:122: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:139: warning: no comment
     public void selectPreviousOption() {
                 ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\NewGameScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\NewGameScreen.java:7: warning: no comment
-public class NewGameScreen extends GameScreen {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\NewGameScreen.java:15: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\NewGameScreen.java:27: warning: no comment
     public NewGameScreen(GameManager gameManager) {
            ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\ThemeBasedModeSelectionScreen.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeBasedModeSelectionScreen.java:7: warning: no comment
-public class ThemeBasedModeSelectionScreen extends GameScreen {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeBasedModeSelectionScreen.java:15: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeBasedModeSelectionScreen.java:27: warning: no comment
     public ThemeBasedModeSelectionScreen(GameManager gameManager, GameData currentPlayerData) {
            ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\ThemeLevelData.html...
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:1: warning: no comment
-public class ThemeLevelData {
-       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:4: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:12: warning: no comment
     public String[] correctAnswers;
                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:7: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:15: warning: no comment
     public String[] funFacts;
                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:5: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:13: warning: no comment
     public String[] hints;
                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:6: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:14: warning: no comment
     public String[] imagePaths;
                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:3: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:11: warning: no comment
     public String[][] options;
                       ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:2: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:10: warning: no comment
     public String[] questions;
                     ^
-c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:9: warning: no comment
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:21: warning: no comment
     public ThemeLevelData() {}
            ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:30: warning: no comment
+    public ThemeLevelData(int level) {
+           ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:22: warning: no comment
+    public void initialize(String[] questions, String[][] options, String[] correctAnswers, String[] hints, String[] imagePaths, String[] funFacts) {
+                ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\ThemeLevelData.java:147: warning: no comment
+    public static void main(String[] args) {
+                       ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\TutorialScreen.html...
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\TutorialScreen.java:26: warning: no comment
+	public TutorialScreen(GameManager gameManager)	{
+	       ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\package-summary.html...
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\package-tree.html...
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\serialized-form.html...
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\DebugMode.java:15: warning: no comment
+    private final String DEBUG_PASSWORD = "123";
+                         ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\DebugMode.java:16: warning: no comment
+    private GameManager gameManager;
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameModeScreen.java:27: warning: no comment
+	private GameManager gameManager;
+	                    ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameModeScreen.java:26: warning: no comment
+	private ArrayList<JButton> menuOptions;
+	                           ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\GameModeScreen.java:28: warning: no comment
+	private GameData playerData;
+	                 ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\HighScoreScreen.java:23: warning: no comment
+    private GameManager gameManager;
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\HighScoreScreen.java:24: warning: no comment
+	private List<GameData> topScores;
+	                       ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\InstructorDashboardScreen.java:24: warning: no comment
+    private JPanel contentPanel;
+                   ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\InstructorDashboardScreen.java:22: warning: no comment
+    private GameManager gameManager;
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\InstructorDashboardScreen.java:23: warning: no comment
+    private final String INSTRUCTOR_PASSWORD = "123"; // Set your password here.
+                         ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:21: warning: no comment
+     private CardLayout cardLayout = new CardLayout();
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:22: warning: no comment
+     private JPanel cardsPanel;
+                    ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:27: warning: no comment
+     private levelData currentLevelData;
+                       ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:28: warning: no comment
+     private int currentQuestionIndex = 0;
+                 ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:31: warning: no comment
+     private GameManager gameManager;
+                         ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:32: warning: no comment
+     int hintsUsed;
+         ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:23: warning: no comment
+     private boolean isAnswerCorrect = false;
+                     ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:20: warning: no comment
+     private int levelNumber;
+                 ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:30: warning: no comment
+     private LevelSelectionScreen levelSelectionScreen;
+                                  ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:29: warning: no comment
+     private GameData playerData;
+                      ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:25: warning: no comment
+     private JLabel pointsLabel;
+                    ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:26: warning: no comment
+     private boolean[] questionAnsweredCorrectly;
+                       ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:33: warning: no comment
+     String[] questionTitles = {"Question 1", "Question 2", "Question 3", "Question 4", "Question 5"};
+              ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level1Game.java:24: warning: no comment
+     private int totalPoints = 0;
+                 ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:20: warning: no comment
+    private CardLayout cardLayout = new CardLayout();
+                       ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:21: warning: no comment
+    private JPanel cardsPanel;
+                   ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:26: warning: no comment
+    private ThemeLevelData currentLevelData;
+                           ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:27: warning: no comment
+    private int currentQuestionIndex = 0;
+                ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:30: warning: no comment
+    private GameManager gameManager;
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:31: warning: no comment
+    int hintsUsed;
+        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:22: warning: no comment
+    private boolean isAnswerCorrect = false;
+                    ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:19: warning: no comment
+    private int levelNumber;
+                ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:29: warning: no comment
+    private LevelSelectionScreen levelSelectionScreen;
+                                 ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:28: warning: no comment
+    private GameData playerData;
+                     ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:24: warning: no comment
+    private JLabel pointsLabel;
+                   ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:25: warning: no comment
+    private boolean[] questionAnsweredCorrectly;
+                      ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:34: warning: no comment
+    String[] questionTitles;
+             ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:32: warning: no comment
+    private ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen;
+                                          ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\Level2Game.java:23: warning: no comment
+    private int totalPoints = 0;
+                ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LevelSelectionScreen.java:17: warning: no comment
+    private GameManager gameManager;
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LevelSelectionScreen.java:93: warning: no comment
+    JButton [] levelButtons = new JButton [5];
+               ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LevelSelectionScreen.java:18: warning: no comment
+    private GameData playerData; // Added to hold the player's game data
+                     ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LoadGameScreen.java:22: warning: no comment
+    private JLabel feedbackLabel; // Label to provide feedback to the user
+                   ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LoadGameScreen.java:18: warning: no comment
+    private GameManager gameManager; // Manages the transition between game states
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LoadGameScreen.java:21: warning: no comment
+    private JButton loginButton; // Button to trigger the login process
+                    ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LoadGameScreen.java:20: warning: no comment
+    private JPasswordField passwordField; // Field for user to enter password
+                           ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\LoadGameScreen.java:19: warning: no comment
+    private JTextField usernameField; // Field for user to enter username
+                       ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:20: warning: no comment
+	private GameManager gameManager;
+	                    ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:19: warning: no comment
+	private ArrayList<JButton> menuOptions;
+	                           ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\MainMenuScreen.java:18: warning: no comment
+	private int selectedOption;
+	            ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\NewGameScreen.java:19: warning: no comment
+    private JButton createButton; // Button to initiate profile creation
+                    ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\NewGameScreen.java:20: warning: no comment
+    private JLabel feedbackLabel; // Label to provide feedback to the user
+                   ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\NewGameScreen.java:16: warning: no comment
+    private GameManager gameManager; // The game's state manager
+                        ^
+c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\NewGameScreen.java:18: warning: no comment
+    private JPasswordField passwordField; // Field for user to enter password
+                           ^
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\overview-tree.html...
 Building index for all classes...
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\allclasses-index.html...
@@ -395,7 +392,7 @@ Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\in
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\search.html...
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\index.html...
 Generating c:\Users\nikun\Downloads\Western\FW 2324\Winter\12\Geo\src\javadoc\help-doc.html...
-2 errors
+1 error
 100 warnings
 
 

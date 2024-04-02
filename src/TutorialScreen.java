@@ -4,6 +4,13 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The `TutorialScreen` class extends `GameScreen` and provides a tutorial interface with various
+ * buttons and tooltips for a game.
+ * 
+ * @author Ali Mohamed
+ * @author Nikunj Patel
+ */
 public class TutorialScreen extends GameScreen {
 	
 	static final int SCREEN_WIDTH = 800;
@@ -11,12 +18,21 @@ public class TutorialScreen extends GameScreen {
 	//private ArrayList<JButton> answerOptions;
 	private GameManager gameManager;
 
+	// The `public TutorialScreen(GameManager gameManager)` constructor in the `TutorialScreen` class is
+	// initializing a new instance of the `TutorialScreen` with a reference to the `GameManager` object
+	// that is passed as a parameter. It sets the `gameManager` field of the `TutorialScreen` to the
+	// provided `gameManager` object. Additionally, it calls the `initialize()` method to set up the
+	// tutorial screen interface with buttons, tooltips, and images.
 	public TutorialScreen(GameManager gameManager)	{
 		this.gameManager = gameManager;
 		initialize();
 
 	}
 
+	/**
+	 * The `initialize` method sets up a graphical user interface for a game screen with buttons and
+	 * tooltips.
+	 */
 	@Override
 	protected void initialize() {
 		
@@ -117,6 +133,14 @@ public class TutorialScreen extends GameScreen {
 		this.setVisible(false);
 	}
 
+	/**
+	 * The handleInput function checks if the actionCommand is "back" and changes the game state to
+	 * "MAIN_MENU" while playing a button click sound.
+	 * 
+	 * @param actionCommand The `actionCommand` parameter in the `handleInput` method is a string that
+	 * represents the action triggered by the user. In this specific code snippet, the method checks if
+	 * the `actionCommand` is equal to "back" and if so, it plays a button click sound using the `Audio
+	 */
 	@Override
 	protected void handleInput(String actionCommand) {
 		if ("back".equals(actionCommand)) {

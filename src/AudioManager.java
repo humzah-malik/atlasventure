@@ -1,14 +1,15 @@
-/**
- * Class responsible for loading music and sounds and providing methods for playback, stopping, and changing.
- * @version 0.1
- * @author Prabnoor Multani
- */
-
  import javax.sound.sampled.*;
  import java.io.IOException;
  import java.util.Objects;
  import java.util.Scanner;
- 
+
+/**
+ * Class responsible for loading music and sounds and providing methods for playback, stopping, and changing.
+ *
+ * @version 1.0
+ * @author Prabnoor Multani
+ * @author Nikunj Patel
+ */ 
  public class AudioManager {
      private AudioInputStream menuMusic;
      private Clip menuMusicClip;
@@ -124,6 +125,9 @@
          menuMusic = AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(music)));
      }
 
+     /**
+      * Class to access a Audiomanager instance anywhere in the package
+      */
      public static AudioManager getInstance() {
         if (audioManager == null) {
             synchronized (AudioManager.class) {

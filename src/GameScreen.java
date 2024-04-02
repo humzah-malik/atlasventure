@@ -1,5 +1,23 @@
 import javax.swing.*;
-
+/**
+ * Represents a generic game screen within the application. This abstract class
+ * provides the structure for game screens, including initialization, activation,
+ * updating, and deactivation of the screen. Implementing classes are responsible
+ * for defining the specific behavior of these operations.
+ * 
+ * <p>The GameScreen class serves as a base for all specific screen types in the
+ * game, such as menus, level selection screens, and actual game levels. It
+ * extends {@link JPanel}, allowing each screen to be treated as a GUI component
+ * that can be added to the game's window.</p>
+ * 
+ * <p>Usage of this class involves extending it and providing implementations for
+ * the abstract methods defined within. This setup allows for a flexible
+ * foundation that can accommodate various game screens with unique behaviors
+ * and visuals.</p>
+ * 
+ * @version 1.0
+ * @author Ali Mohamed
+ */
 public abstract class GameScreen extends JPanel {
 	
     /**

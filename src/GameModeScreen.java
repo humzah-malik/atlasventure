@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -9,6 +10,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.Border;
+
+/**
+ * Represents a game mode selection screen where players can choose between different types of game modes.
+ * Extends the GameScreen to utilize common functionalities and UI standards for game screens.
+ *
+ * @version 1.0
+ * @author Ali Mohamed
+ */
 
 public class GameModeScreen extends GameScreen {
 	
@@ -24,6 +33,10 @@ public class GameModeScreen extends GameScreen {
 		
 	}
 	
+	/**
+	 * The `initialize` method sets up a game options screen with title, buttons for different play modes,
+	 * and button actions to switch game states.
+	 */
 	@Override
 	protected void initialize() {
 		
@@ -86,7 +99,6 @@ public class GameModeScreen extends GameScreen {
         }
     };
     
-    // Assign the listener to each button
     classicButton.addActionListener(buttonListener);
     themeBasedButton.addActionListener(buttonListener);
         

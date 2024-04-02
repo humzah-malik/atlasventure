@@ -5,6 +5,16 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * The {@code InstructorDashboardScreen} class creates a screen where an instructor can view 
+ * high score data and other game-related statistics. This screen is protected by a password.
+ * Extends {@link GameScreen} to adhere to the application's screen structure.
+ *
+ * @author Ali Mohamed
+ * @author Nikunj Patel
+ * @version 1.0
+ */
+
 public class InstructorDashboardScreen extends GameScreen {
     
     static final int SCREEN_WIDTH = 800;
@@ -14,6 +24,8 @@ public class InstructorDashboardScreen extends GameScreen {
     private JPanel contentPanel;
     
 
+    // This constructor `public InstructorDashboardScreen(GameManager gameManager)` is initializing an
+    // instance of the `InstructorDashboardScreen` class with a reference to a `GameManager` object.
     public InstructorDashboardScreen(GameManager gameManager) {
         this.gameManager = gameManager;
         
@@ -26,6 +38,10 @@ public class InstructorDashboardScreen extends GameScreen {
         }
     }
 
+    /**
+     * The `initializeUIComponents` method sets up the user interface components for displaying player
+     * data with a scrollable panel.
+     */
     private void initializeUIComponents() {
         setLayout(new BorderLayout());
         setBackground(Color.gray);
@@ -51,6 +67,13 @@ public class InstructorDashboardScreen extends GameScreen {
         loadAndDisplayPlayerData();
     }
 
+    /**
+     * The `createTopPanel` function in Java creates a JPanel with a back button and a title for an
+     * Instructor Dashboard interface.
+     * 
+     * @return The method `createTopPanel()` returns a `JPanel` component that contains a top panel
+     * with a back button on the left side and a title "Instructor Dashboard" centered in the panel.
+     */
     private JPanel createTopPanel() {
         // Main top panel with BorderLayout
         JPanel topPanel = new JPanel(new BorderLayout());
@@ -89,12 +112,24 @@ public class InstructorDashboardScreen extends GameScreen {
         return topPanel;
     }
 
+    /**
+     * The function `verifyPassword` prompts the user to enter a password and returns true if the
+     * entered password matches a predefined instructor password.
+     * 
+     * @return The method `verifyPassword()` is returning a boolean value. It returns `true` if the
+     * user clicks OK in the dialog and the entered password matches the `INSTRUCTOR_PASSWORD`,
+     * otherwise it returns `false`.
+     */
     private boolean verifyPassword() {
         JPasswordField pf = new JPasswordField();
         int ok = JOptionPane.showConfirmDialog(null, pf, "Enter Instructor Password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         return ok == JOptionPane.OK_OPTION && INSTRUCTOR_PASSWORD.equals(new String(pf.getPassword()));
     }
 
+    /**
+     * The function `loadAndDisplayPlayerData` removes existing content, loads player data from a file,
+     * creates panels for each player, adds them to a panel, and then refreshes the display.
+     */
     private void loadAndDisplayPlayerData() {
         contentPanel.removeAll();
 
@@ -111,6 +146,16 @@ public class InstructorDashboardScreen extends GameScreen {
 
     }
 
+   /**
+    * The function creates a JPanel displaying player information such as username, score, level
+    * completed, and hints used.
+    * 
+    * @param data The `data` parameter in the `createPlayerInfoPanel` method is of type `GameData`. It
+    * contains information about the player such as their username, score, level completed, and hints
+    * used.
+    * @return The method `createPlayerInfoPanel` returns a `JPanel` that displays player information
+    * such as username, score, level completed, and hints used.
+    */
     private JPanel createPlayerInfoPanel(GameData data) {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 2, 10, 10));

@@ -1,6 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Represents the screen for level selection in the game. 
+ * Players can choose from available levels to play based on their progress.
+ * Inherits from {@link GameScreen} to provide a consistent interface and functionality across screens.
+ * 
+ * @author Ali Mohamed
+ * @author Nikunj Patel
+ * @version 1.0
+ */
 public class LevelSelectionScreen extends GameScreen {
     
     static final int SCREEN_WIDTH = 800;
@@ -14,6 +23,10 @@ public class LevelSelectionScreen extends GameScreen {
         initialize();
     }
 
+    /**
+     * The `initialize` method sets up a level selection screen with title, back button, and
+     * dynamically created level buttons based on player progress.
+     */
     @Override
     protected void initialize() {
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -57,6 +70,20 @@ for (int i = 0; i < 5; i++) { // Assuming 5 levels for simplicity
 }
     }
 
+    /**
+     * The function `getStatus` determines the status of a level based on the level index and the
+     * number of levels completed.
+     * 
+     * @param levelIndex The `levelIndex` parameter represents the index of the level for which you
+     * want to determine the status.
+     * @param levelsCompleted The `levelsCompleted` parameter represents the number of levels that have
+     * been completed by the player.
+     * @return The method `getStatus` returns a String indicating the status of a level based on the
+     * `levelIndex` and `levelsCompleted` parameters. The possible return values are:
+     * - " - Completed" if `levelIndex` is less than `levelsCompleted`
+     * - " - Current" if `levelIndex` is equal to `levelsCompleted`
+     * - " - Locked" if `levelIndex` is greater
+     */
     private String getStatus(int levelIndex, int levelsCompleted) {
         if (levelIndex < levelsCompleted) return " - Completed";
         else if (levelIndex == levelsCompleted) return " - Current";
@@ -64,6 +91,11 @@ for (int i = 0; i < 5; i++) { // Assuming 5 levels for simplicity
     }
 
     JButton [] levelButtons = new JButton [5];
+    /**
+     * The `initializeButtons` method dynamically creates level buttons based on player progress,
+     * setting their text, position, font, background color, and enabling/disabling based on completed
+     * levels.
+     */
     private void initalizeButtons()
     {
         // Dynamically create level buttons based on player progress
@@ -84,6 +116,10 @@ for (int i = 0; i < 5; i++) { // Assuming 5 levels for simplicity
         }
 
     }
+     /**
+      * The `refreshButtons` function updates the position, size, font, background color, and enabled
+      * status of level buttons based on player progress.
+      */
      public void refreshButtons ()
      {
          for (int i = 0; i< levelButtons.length; i++)
@@ -100,6 +136,13 @@ for (int i = 0; i < 5; i++) { // Assuming 5 levels for simplicity
 
      }
 
+    /**
+     * The `selectLevel` method selects a game level, creates a JFrame for the level, and switches to
+     * gameplay for that level.
+     * 
+     * @param levelNumber The `levelNumber` parameter is an integer value that represents the number of
+     * the level being selected.
+     */
     private void selectLevel(int levelNumber) {
         System.out.println("Selected Level: " + levelNumber);
         JFrame frame = new JFrame("Level " + levelNumber + " Game");

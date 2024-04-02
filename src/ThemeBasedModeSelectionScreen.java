@@ -4,6 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * The ThemeBasedModeSelectionScreen class allows the player to select a theme for their gameplay.
+ * This screen presents different thematic options, such as landmarks, traditional clothing, and culture/traditions.
+ * It extends the GameScreen abstract class and utilizes the GameManager to handle transitions between game states.
+ *
+ * @author Ali Mohamed
+ * @author Nikunj Patel
+ * @version 1.0
+ */
 public class ThemeBasedModeSelectionScreen extends GameScreen {
 
     static final int SCREEN_WIDTH = 800;
@@ -12,12 +21,19 @@ public class ThemeBasedModeSelectionScreen extends GameScreen {
     private GameManager gameManager;
     private GameData playerData;
 
+    // This constructor `public ThemeBasedModeSelectionScreen(GameManager gameManager, GameData
+    // currentPlayerData)` is initializing a new instance of the `ThemeBasedModeSelectionScreen` class
+    // with the provided `GameManager` and `GameData` objects.
     public ThemeBasedModeSelectionScreen(GameManager gameManager, GameData currentPlayerData) {
         this.gameManager = gameManager;
         this.playerData = currentPlayerData;
         initialize();
     }
 
+    /**
+     * The `initialize` method sets up a GUI interface for selecting a theme in a Java application,
+     * including labels, buttons, and event listeners.
+     */
     @Override
     protected void initialize() {
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -80,13 +96,15 @@ public class ThemeBasedModeSelectionScreen extends GameScreen {
     }
 
     
-    /** 
-     * @param actionCommand
-     */
+    
     @Override
     protected void handleInput(String actionCommand) {
     }
 
+    /**
+     * This class represents an ActionListener for selecting a theme mode in a game, which triggers a
+     * switch to gameplay with the selected theme.
+     */
     private class ThemeModeActionListener implements ActionListener {
         private final GameManager gameManager;
         private final String themeMode;
@@ -94,6 +112,9 @@ public class ThemeBasedModeSelectionScreen extends GameScreen {
         private final GameData playerData;
         int i;
 
+        // This `ThemeModeActionListener` constructor is initializing the member variables of the
+        // `ThemeModeActionListener` class with the values passed as arguments to the constructor.
+        // Here's what each parameter is used for:
         public ThemeModeActionListener(GameManager gameManager, String themeMode, int i, ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen, GameData playerData) {
             this.gameManager = gameManager;
             this.themeMode = themeMode;
@@ -102,6 +123,15 @@ public class ThemeBasedModeSelectionScreen extends GameScreen {
             this.playerData = playerData;
         }
 
+       /**
+        * The actionPerformed method plays a button click sound, prints the selected theme mode, and
+        * switches to a gameplay screen based on the selected theme mode.
+        * 
+        * @param e The parameter `e` in the `actionPerformed` method of an `ActionListener` represents
+        * the `ActionEvent` that occurred, such as a button click or menu selection. It provides
+        * information about the event that triggered the action, allowing you to respond accordingly in
+        * your code.
+        */
         @Override
         public void actionPerformed(ActionEvent e) {
             AudioManager.getInstance().playButtonClickSound();

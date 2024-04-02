@@ -4,6 +4,13 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The `MainMenuScreen` class in Java represents the main menu screen of a game with various menu
+ * options and functionality.
+ * 
+ * @author Ali Mohamed
+ * @author Nikunj Patel
+ */
 public class MainMenuScreen extends GameScreen {
 	
 	static final int SCREEN_WIDTH = 800;
@@ -13,7 +20,12 @@ public class MainMenuScreen extends GameScreen {
 	private GameManager gameManager;
 
 	
-	public MainMenuScreen(GameManager gameManager) {
+	// The `public MainMenuScreen(GameManager gameManager)` constructor in the `MainMenuScreen` class is
+    // initializing a new instance of the `MainMenuScreen` with a reference to a `GameManager` object. It
+    // sets the `gameManager` field of the `MainMenuScreen` to the provided `gameManager` parameter and
+    // then calls the `initialize()` method to set up the main menu screen with various components such as
+    // buttons, labels, and event listeners.
+    public MainMenuScreen(GameManager gameManager) {
 		this.gameManager = gameManager;
 		initialize();
 
@@ -21,6 +33,10 @@ public class MainMenuScreen extends GameScreen {
 	
 	
 
+    /**
+     * The `initialize` method sets up the main menu interface with buttons for various options, music
+     * controls, project details, and background image.
+     */
     @Override
 	protected void initialize() {
 		
@@ -126,7 +142,16 @@ public class MainMenuScreen extends GameScreen {
     }
 
 	
-	protected void handleInput(String actionCommand) {
+	/**
+     * The handleInput method processes different action commands to change game states, show high scores,
+     * display instructor dashboard, enable debug mode, or close the game.
+     * 
+     * @param actionCommand The `handleInput` method takes a parameter `actionCommand` which represents
+     * the action to be performed in the game. The method checks the value of `actionCommand` and performs
+     * different actions based on its value. The possible values for `actionCommand` in this case are "New
+     * Game", "
+     */
+    protected void handleInput(String actionCommand) {
 		if (gameManager == null) {
             System.err.println("GameManager is not initialized.");
             return;

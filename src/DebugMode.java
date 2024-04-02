@@ -1,17 +1,34 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
+/**
+ * The `DebugMode` class allows developers to access debugging features in a game by entering a
+ * password and provides functionality to create debug game data.
+ *
+ * @version 1.0
+ * @author Nikunj Patel
+ */
 public class DebugMode extends JPanel {
     private final String DEBUG_PASSWORD = "123";
     private GameManager gameManager;
 
+    // The `public DebugMode(GameManager gameManager)` constructor in the `DebugMode` class is
+    // initializing a new instance of the `DebugMode` class with a reference to a `GameManager` object.
+    // It sets the `gameManager` field of the `DebugMode` instance to the provided `gameManager` object
+    // and then calls the `initialize()` method to set up the GUI for the debug mode screen with
+    // labels, password field, buttons, and status messages.
     public DebugMode(GameManager gameManager) {
         this.gameManager = gameManager;
         initialize();
     }
 
+ /**
+  * The `initialize` function sets up a GUI for a debug mode screen with labels, password field,
+  * buttons, and status messages.
+  */
     private void initialize() {
         setLayout(null); 
         setBackground(Color.gray);
@@ -61,8 +78,10 @@ public class DebugMode extends JPanel {
                 
                 GameData debugData = createDebugGameData(5); 
                 gameManager.switchToGameModeScreen(debugData);
-                statusLabel.setText("Access Denied");
             }
+            else{
+            statusLabel.setText("Access Denied");
+        }
         });
     }
     

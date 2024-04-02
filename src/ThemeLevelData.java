@@ -1,3 +1,11 @@
+/**
+ * The `ThemeLevelData` class in Java represents quiz data for different themes like Landmarks,
+ * Traditional Clothing, and Flags, with methods to initialize the data based on the theme level
+ * provided and a constructor to set up the quiz data for each theme.
+ * 
+ * @author Het Patel
+ * @author Nikunj Patel
+ */
 public class ThemeLevelData {
     public String[] questions;
     public String[][] options;
@@ -6,6 +14,10 @@ public class ThemeLevelData {
     public String[] imagePaths;
     public String[] funFacts;
 
+    // The above Java code defines a class `ThemeLevelData` that represents data for different quiz
+    // themes such as Landmarks, Traditional Clothing, and Flags. The class has methods to initialize
+    // the quiz data for each theme and a constructor that allows initializing the data based on the
+    // theme level provided.
     public ThemeLevelData() {}
     public void initialize(String[] questions, String[][] options, String[] correctAnswers, String[] hints, String[] imagePaths, String[] funFacts) {
         this.questions = questions;

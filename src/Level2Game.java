@@ -5,6 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Enumeration;
 
+/**
+ * This class represents the theme levels of the game. It is responsible for displaying questions, managing game state,
+ * and interacting with other components like GameManager and LevelSelectionScreen.
+ * 
+ * @author Het Patel
+ * @author Nikunj Patel
+ */
+
 public class Level2Game extends JPanel {
     static final int SCREEN_WIDTH = 800;
     static final int SCREEN_HEIGHT = 650;
@@ -25,6 +33,9 @@ public class Level2Game extends JPanel {
 
     String[] questionTitles;
 
+    // This constructor `public Level2Game(int levelNumber, GameData player,
+    // ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen, GameManager gameManager)` is
+    // initializing a new instance of the `Level2Game` class with the provided parameters.
     public Level2Game(int levelNumber, GameData player, ThemeBasedModeSelectionScreen themeBasedModeSelectionScreen, GameManager gameManager) {
         this.themeBasedModeSelectionScreen = themeBasedModeSelectionScreen;
         this.levelNumber = levelNumber;
@@ -35,6 +46,10 @@ public class Level2Game extends JPanel {
         initialize();
     }
 
+    /**
+     * The `initialize` method sets up the user interface for a game level, including creating question
+     * panels, points display, back button, and displaying the first question.
+     */
     private void initialize() {
         questionTitles = currentLevelData.questions;
         setLayout(new BorderLayout());
@@ -68,7 +83,7 @@ public class Level2Game extends JPanel {
         backToMain.setBorderPainted(false);
         backToMain.setContentAreaFilled(false);
         backToMain.addActionListener(e -> {
-            AudioManager.getInstance().stopGameplayMusic();
+            // AudioManager.getInstance().playMenuMusic();
             gameManager.switchToThemeBasedModeSelectionScreen(playerData);
             AudioManager.getInstance().playButtonClickSound();
             levelSelectionScreen.activate(); // Assuming you have a method to show the level selection screen
@@ -93,6 +108,10 @@ public class Level2Game extends JPanel {
         cardLayout.show(cardsPanel, "Question0");
     }
 
+    /**
+     * The `createCardsPanel` method creates a panel with multiple question panels based on provided
+     * data and adds it to the center of the layout.
+     */
     private void createCardsPanel() {
         cardsPanel = new JPanel(cardLayout);
         cardsPanel.setOpaque(false); // Making the cards panel transparent
@@ -103,6 +122,31 @@ public class Level2Game extends JPanel {
         add(cardsPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * The `createQuestionPanel` function creates a JPanel for displaying a question with options, hint
+     * button, and image.
+     * 
+     * @param questionTitle The `questionTitle` parameter is a String that represents the title or text
+     * of the question being displayed in the panel. It is typically a question or a statement that the
+     * user needs to respond to.
+     * @param correctAnswer The `correctAnswer` parameter in the `createQuestionPanel` method is used
+     * to specify the correct answer for the question being displayed. This answer will be compared
+     * with the option selected by the user to determine if it is correct or not.
+     * @param options The `options` parameter in the `createQuestionPanel` method is an array of
+     * strings that represent the answer choices for a multiple-choice question. Each string in the
+     * array corresponds to a different answer choice that the user can select when presented with the
+     * question panel.
+     * @param hint The `hint` parameter in the `createQuestionPanel` method is used to provide a hint
+     * for the question being displayed. When the user clicks on the "Use Hint" button, the hint
+     * message associated with the question will be displayed in a dialog box. This can help the user
+     * in answering the
+     * @param imagePath The `imagePath` parameter in the `createQuestionPanel` method is a String that
+     * represents the path to the image file that will be displayed in the panel. This path is used to
+     * load the image and set it as the icon for the `imageLabel` in the panel. Make sure to
+     * @return The method `createQuestionPanel` returns a `JPanel` that contains a question title, an
+     * image, multiple option buttons for the user to select an answer, a hint button, and control
+     * buttons for the user to interact with the question panel.
+     */
     private JPanel createQuestionPanel(String questionTitle, String correctAnswer, String[] options, String hint, String imagePath) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setOpaque(false);
@@ -142,11 +186,6 @@ public class Level2Game extends JPanel {
         });
         controlPanel.add(hintButton);
     
-        //JButton nextQuestionButton = new JButton("Next Question");
-        //nextQuestionButton.addActionListener(e -> goToNextQuestion());
-        //nextQuestionButton.setEnabled(false); // Initially disabled, enable when answer is correct
-        //controlPanel.add(nextQuestionButton);
-    
         bottomPanel.add(controlPanel, BorderLayout.SOUTH);
         panel.add(bottomPanel, BorderLayout.SOUTH);
 
@@ -164,6 +203,18 @@ public class Level2Game extends JPanel {
         return panel;
     }
     
+    /**
+     * The `checkAnswer` function compares the selected option with the correct answer, updates the
+     * score and displays a fun fact before moving to the next question.
+     * 
+     * @param selectedOption The `selectedOption` parameter represents the answer option chosen by the
+     * user for a particular question in a quiz or questionnaire. It is compared with the
+     * `correctAnswer` parameter to determine if the user's selection is correct.
+     * @param correctAnswer The `correctAnswer` parameter in the `checkAnswer` method is the correct
+     * answer to the current question being evaluated. It is compared with the `selectedOption`
+     * parameter, which represents the answer chosen by the user. If the `selectedOption` matches the
+     * `correctAnswer`, the user's answer
+     */
     private void checkAnswer(String selectedOption, String correctAnswer) {
         if (selectedOption.equals(correctAnswer)) {
             isAnswerCorrect = true;
@@ -182,6 +233,19 @@ public class Level2Game extends JPanel {
         nextQuestionButton.setEnabled(true);
     }
 
+    /**
+     * The function `showFunFact` displays a fun fact message based on the correctness of the answer
+     * for a specific question in a game level.
+     * 
+     * @param isCorrect A boolean value indicating whether the answer to a question is correct or not.
+     * @param funFactIndex The `funFactIndex` parameter is not being used in the `showFunFact` method.
+     * It seems like it was initially intended to be used to access a specific fun fact from an array
+     * of fun facts, but the method is currently using the `questionIndex` parameter for that purpose
+     * instead.
+     * @param questionIndex The `questionIndex` parameter in the `showFunFact` method is used to
+     * determine which fun fact to display based on the index provided. It is used to access the
+     * corresponding fun fact from the `funFacts` array in the `currentLevelData` object.
+     */
     private void showFunFact(boolean isCorrect, int funFactIndex, int questionIndex) {
         if(currentLevelData.funFacts != null && currentLevelData.funFacts.length > questionIndex) {
             String funFact = currentLevelData.funFacts[questionIndex]; 
@@ -191,6 +255,10 @@ public class Level2Game extends JPanel {
         }
     }
 
+    /**
+     * The `goToNextQuestion` method increments the current question index, checks if all questions
+     * have been completed, updates player data and switches screens accordingly.
+     */
     private void goToNextQuestion() {
         currentQuestionIndex++;
         if (currentQuestionIndex >= questionTitles.length) {
@@ -200,11 +268,11 @@ public class Level2Game extends JPanel {
                 playerData.setLevelCompleted(levelNumber);
                 playerData.setScore(playerData.getScore() + totalPoints);
                 playerData.setHintsUsed(hintsUsed);
-                AudioManager.getInstance().playMenuMusic();
+                // AudioManager.getInstance().playMenuMusic();
                 gameManager.switchToThemeBasedModeSelectionScreen(playerData);
             }
             else{
-                AudioManager.getInstance().playMenuMusic();
+                // AudioManager.getInstance().playMenuMusic();
                 gameManager.switchToThemeBasedModeSelectionScreen(playerData);
             }
             

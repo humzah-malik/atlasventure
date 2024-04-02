@@ -3,19 +3,37 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
 
+/**
+ * A screen for loading a game through user authentication.
+ * This screen allows a user to log in with a username and password.
+ * Upon successful authentication, the user can proceed to their game state.
+ *
+ * @author Ali Mohamed
+ * @author Nikunj Patel
+ * @version 1.0
+ */
+
 public class LoadGameScreen extends GameScreen {
 
-    private GameManager gameManager;
-    private JTextField usernameField;
-    private JPasswordField passwordField;
-    private JButton loginButton;
-    private JLabel feedbackLabel;
+    private GameManager gameManager; // Manages the transition between game states
+    private JTextField usernameField; // Field for user to enter username
+    private JPasswordField passwordField; // Field for user to enter password
+    private JButton loginButton; // Button to trigger the login process
+    private JLabel feedbackLabel; // Label to provide feedback to the user
 
+     /**
+     * Constructs a LoadGameScreen object.
+     *
+     * @param gameManager The game manager for managing game states.
+     */
     public LoadGameScreen(GameManager gameManager) {
         this.gameManager = gameManager;
         initialize();
     }
 
+    /**
+     * Initializes the UI components of the load game screen.
+     */
     @Override
     protected void initialize() {
         this.setLayout(null); // Use null layout for absolute positioning
@@ -71,6 +89,12 @@ public class LoadGameScreen extends GameScreen {
         this.add(feedbackLabel);
     }
 
+    /**
+     * Handles the login action when the login button is pressed.
+     * Validates the username and password, providing feedback accordingly.
+     *
+     * @param e The action event triggered by pressing the login button.
+     */
     private void loginAction(ActionEvent e) {
         String username = usernameField.getText().trim();
         String password = new String(passwordField.getPassword()).trim();

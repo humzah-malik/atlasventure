@@ -6,6 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * The {@code HighScoreScreen} class represents a screen displaying the high scores from previous game sessions.
+ * It extends {@link GameScreen} to use common screen functionalities.
+ * The screen shows a list of top scores and provides a way to navigate back to the main menu.
+ *
+ * @version 1.0
+ * @author Ali Mohamed
+ * @author Nikunj Patel
+ */
+
 public class HighScoreScreen extends GameScreen {
 
     static final int SCREEN_WIDTH = 800;
@@ -13,6 +23,9 @@ public class HighScoreScreen extends GameScreen {
     private GameManager gameManager;
 	private List<GameData> topScores;
 
+// The `public HighScoreScreen(GameManager gameManager, List<GameData> topScores)` constructor in the
+// `HighScoreScreen` class is initializing a new instance of the `HighScoreScreen` with the provided
+// `GameManager` and a list of `GameData` representing the top scores.
 public HighScoreScreen(GameManager gameManager, List<GameData> topScores) {
     this.gameManager = gameManager;
     this.topScores = topScores; // Save the top scores
@@ -20,6 +33,10 @@ public HighScoreScreen(GameManager gameManager, List<GameData> topScores) {
 }
 
 
+    /**
+     * The `initialize` method sets up a graphical user interface for displaying high scores in a Java
+     * application.
+     */
     @Override
     protected void initialize() {
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -61,6 +78,15 @@ public HighScoreScreen(GameManager gameManager, List<GameData> topScores) {
         this.add(backToMain);
     }
 
+    /**
+     * The `createBackButton` function creates a JButton with an image and functionality to return to
+     * the main menu in a Java application.
+     * 
+     * @return The method `createBackButton()` returns a `JButton` component that has been configured
+     * to display an image of a back button, set its bounds, background, border, and content area
+     * properties, added an action listener to change the game state to "MAIN_MENU" and play a button
+     * click sound when clicked.
+     */
     private JButton createBackButton() {
         JButton backToMain = new JButton(new ImageIcon(getClass().getResource("/images/back.png")));
         backToMain.setBounds(10, 10, 60, 60);

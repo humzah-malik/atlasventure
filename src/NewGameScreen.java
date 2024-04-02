@@ -4,19 +4,35 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Represents the screen for creating a new game profile, allowing the user to enter a username and password.
+ * This class interacts with the GameManager to transition to different game states upon successful profile creation.
+ *
+ * @author Ali Mohamed
+ * @author Nikunj Patel
+ */
 public class NewGameScreen extends GameScreen {
 
-    private GameManager gameManager;
-    private JTextField usernameField;
-    private JPasswordField passwordField;
-    private JButton createButton;
-    private JLabel feedbackLabel;
+    private GameManager gameManager; // The game's state manager
+    private JTextField usernameField; // Field for user to enter username
+    private JPasswordField passwordField; // Field for user to enter password
+    private JButton createButton; // Button to initiate profile creation
+    private JLabel feedbackLabel; // Label to provide feedback to the user
 
+    // The `public NewGameScreen(GameManager gameManager)` constructor in the `NewGameScreen` class is
+    // initializing a new instance of the `NewGameScreen` class. It takes a `GameManager` object as a
+    // parameter and assigns it to the `gameManager` instance variable of the `NewGameScreen` class.
+    // After assigning the `gameManager`, it calls the `initialize()` method to set up the graphical
+    // user interface components and layout for the new game screen.
     public NewGameScreen(GameManager gameManager) {
         this.gameManager = gameManager;
         initialize();
     }
 
+    /**
+     * The `initialize` method sets up a GUI for creating a new profile with labels, text fields,
+     * buttons, and feedback display.
+     */
     @Override
     protected void initialize() {
         this.setLayout(null); // Use null layout for absolute positioning
@@ -72,6 +88,15 @@ public class NewGameScreen extends GameScreen {
         this.add(feedbackLabel);
     }
 
+    /**
+     * The `createProfileAction` function creates a new user profile with a unique username and hashed
+     * password, performs basic validation, checks for existing usernames, and saves the profile data.
+     * 
+     * @param e The `e` parameter in the `createProfileAction` method is of type `ActionEvent`. This
+     * parameter represents the action event that occurred, triggering the method to be executed. In
+     * this context, it is commonly used to handle user interactions with GUI components, such as
+     * buttons, that trigger the creation
+     */
     private void createProfileAction(ActionEvent e) {
         String username = usernameField.getText().trim();
         String password = new String(passwordField.getPassword()).trim();

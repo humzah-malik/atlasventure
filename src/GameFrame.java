@@ -1,8 +1,17 @@
-
 import javax.swing.JFrame;
 
+/**
+ * The `GameFrame` class in Java initializes screens for a game application and sets up the frame for
+ * the game.
+ */
 public class GameFrame extends JFrame {
 	
+	// The `public GameFrame()` method is a constructor for the `GameFrame` class in Java. Inside this
+	// constructor, several screens for a game application are being initialized:
+	// The `public GameFrame()` method is a constructor for the `GameFrame` class in Java. Inside this
+	// constructor, several screens for a game application are being initialized:
+	// The `public GameFrame()` method is a constructor for the `GameFrame` class in Java. Inside this
+	// constructor, several screens for a game application are being initialized:
 	public GameFrame() {
 		MainMenuScreen mainMenu = new MainMenuScreen(null);
 		HighScoreScreen highScores = new HighScoreScreen(null, null);
@@ -11,11 +20,6 @@ public class GameFrame extends JFrame {
 		GameModeScreen gameMode = new GameModeScreen(null, null);
 		TutorialScreen tutorial = new TutorialScreen(null);
 		
-//		this.add(mainMenu);
-//		this.add(highScores);
-//		this.add(gameplay);
-//		this.add(dashboard);
-//		this.add(gameMode);
 		this.add(tutorial);
 		
 		this.setTitle("AtlasVenture");
