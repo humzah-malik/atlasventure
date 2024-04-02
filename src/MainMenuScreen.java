@@ -45,6 +45,7 @@ public class MainMenuScreen extends GameScreen {
         musicoff.setContentAreaFilled(false);
         musicoff.addActionListener(e ->{ 
             AudioManager.getInstance().stopMenuMusic();
+            AudioManager.getInstance().stopGameplayMusic();
             AudioManager.getInstance().playButtonClickSound();
         });
         this.add(musicoff);

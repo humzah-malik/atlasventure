@@ -65,6 +65,10 @@ public class GameManager implements ActionListener {
          gameLoopTimer.start();
     }
 
+    
+    /** 
+     * @param newState
+     */
     public void changeGameState(String newState) {
         // Update the currentState
         currentState = newState;

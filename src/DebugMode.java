@@ -66,6 +66,11 @@ public class DebugMode extends JPanel {
         });
     }
     
+    
+    /** 
+     * @param totalLevels
+     * @return GameData
+     */
     private GameData createDebugGameData(int totalLevels) {
         ArrayList<Integer> levelsCompleted = new ArrayList<>();
         for (int i = 1; i <= totalLevels; i++) {

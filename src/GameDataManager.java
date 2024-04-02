@@ -20,6 +20,11 @@ public class GameDataManager {
     static final String FILE_PATH = "game_data.json";
     private static final String Q_FILE_PATH = "questionSets.json";
 
+    
+    /** 
+     * @param gameDataMap
+     * @param filePath
+     */
     public static void saveGameData(HashMap < String, GameData > gameDataMap, String filePath) {
         filePath = getCorrectJSONPath(filePath);
         try {
@@ -52,6 +57,11 @@ public class GameDataManager {
         }
     }
 
+    
+    /** 
+     * @param filePath
+     * @return HashMap<String, GameData>
+     */
     // Username to Gamedata map
     public static HashMap < String, GameData > loadGameData(String filePath) {
         try {

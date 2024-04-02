@@ -3,13 +3,12 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.border.Border;
 
 public class TutorialScreen extends GameScreen {
 	
 	static final int SCREEN_WIDTH = 800;
 	static final int SCREEN_HEIGHT = 600;
-	private ArrayList<JButton> answerOptions;
+	//private ArrayList<JButton> answerOptions;
 	private GameManager gameManager;
 
 	public TutorialScreen(GameManager gameManager)	{

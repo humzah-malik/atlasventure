@@ -25,6 +25,11 @@ public class GameData {
         this.levelsLeft = levelsLeft;
     }
 
+    
+    /** 
+     * @param input
+     * @return ArrayList<Integer>
+     */
     public static ArrayList < Integer > parseIntArrayList(String input) {
         if (input == "")
             return new ArrayList < > ();

@@ -43,6 +43,13 @@
          correctAnswerSoundClip.open(correctAnswerSound);
      }
  
+     
+     /** 
+      * @param args
+      * @throws UnsupportedAudioFileException
+      * @throws LineUnavailableException
+      * @throws IOException
+      */
      public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
          AudioManager man = new AudioManager();
  
