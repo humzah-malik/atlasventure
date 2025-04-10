@@ -7,7 +7,7 @@
 
 ---
 
-## 👥 Team 43
+## Team 43
 
 - **Nikunj Pareshkumar Patel**
 - **Ali Mohamed**
@@ -17,7 +17,7 @@
 
 ---
 
-## ⚙️ Technologies Used
+## Technologies Used
 
 - Java (JDK 21, Preview Features)
 - Java Swing / AWT
@@ -26,7 +26,7 @@
 
 ---
 
-## 🕹️ Features
+## Features
 
 - Interactive geography challenges
 - Custom hint system for learning support
@@ -36,14 +36,14 @@
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
-### 🧪 Requirements
+### Requirements
 
 - Java 21+ (preview features enabled)
 - macOS, Linux, or Windows
 
-### 📦 To Run with `.jar` (prebuilt):
+### To Run with `.jar` (prebuilt):
 
 ```bash
 cd Geo
