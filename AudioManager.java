@@ -1,13 +1,14 @@
 /**
  * Class responsible for loading music and sounds and providing methods for playback, stopping, and changing.
  * @version 0.1
- * @author Prabnoor Multani
+ * @author 
  */
 
  import javax.sound.sampled.*;
  import java.io.IOException;
  import java.util.Objects;
  import java.util.Scanner;
+ import java.io.BufferedInputStream;
  
  public class AudioManager {
      private AudioInputStream menuMusic;
@@ -18,21 +19,37 @@
      private Clip buttonClickSoundClip;
      private AudioInputStream correctAnswerSound;
      private Clip correctAnswerSoundClip;
-    
+     
      private static AudioManager audioManager;
-
+ 
      /**
-      * AudioManager constructor. Loads all music and sound files and initializes and opens their corresponding clips.
-      * @throws UnsupportedAudioFileException
-      * @throws IOException
-      * @throws LineUnavailableException
+      * Primary constructor: Loads all audio files and initializes their clips.
+      * @throws UnsupportedAudioFileException 
+      * @throws IOException 
+      * @throws LineUnavailableException 
       */
      private AudioManager() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-         menuMusic = AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resources/menu_music.wav")));
-         gamePlayMusic = AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resources/gameplay_music.wav")));
-         buttonClickSound = AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resources/button_sound.wav")));
-         correctAnswerSound = AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resources/correct_answer.wav")));
-
+         menuMusic = AudioSystem.getAudioInputStream(
+             new BufferedInputStream(
+                 Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resources/menu_music.wav"))
+             )
+         );
+         gamePlayMusic = AudioSystem.getAudioInputStream(
+             new BufferedInputStream(
+                 Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resources/gameplay_music.wav"))
+             )
+         );
+         buttonClickSound = AudioSystem.getAudioInputStream(
+             new BufferedInputStream(
+                 Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resources/button_sound.wav"))
+             )
+         );
+         correctAnswerSound = AudioSystem.getAudioInputStream(
+             new BufferedInputStream(
+                 Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("resources/correct_answer.wav"))
+             )
+         );
+ 
          menuMusicClip = AudioSystem.getClip();
          menuMusicClip.open(menuMusic);
          gameplayMusicClip = AudioSystem.getClip();
@@ -42,9 +59,18 @@
          correctAnswerSoundClip = AudioSystem.getClip();
          correctAnswerSoundClip.open(correctAnswerSound);
      }
- 
      
-     /** 
+     /**
+      * No-op constructor used for the SilentAudioManager.
+      * It doesn't load any audio and thus doesn't throw any exceptions.
+      * @param skip a dummy parameter to differentiate from the primary constructor.
+      */
+     private AudioManager(boolean skip) {
+         // No audio loading. This constructor purposely does nothing.
+     }
+     
+     /**
+      * Main method to run the AudioManager.
       * @param args
       * @throws UnsupportedAudioFileException
       * @throws LineUnavailableException
@@ -52,7 +78,7 @@
       */
      public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
          AudioManager man = new AudioManager();
- 
+  
          Scanner sc = new Scanner(System.in);
          String input = sc.nextLine();
          while (!input.equalsIgnoreCase("exit")) {
@@ -64,8 +90,9 @@
              if (input.equalsIgnoreCase("cap")) man.playCorrectAnswerSound();
              input = sc.nextLine();
          }
+         sc.close();
      }
- 
+  
      /**
       * Plays menu music.
       */
@@ -74,14 +101,14 @@
          menuMusicClip.setFramePosition(0);
          menuMusicClip.start();
      }
- 
+  
      /**
       * Stops the menu music.
       */
      public void stopMenuMusic() {
          menuMusicClip.stop();
      }
- 
+  
      /**
       * Plays the gameplay music.
       */
@@ -90,14 +117,14 @@
          gameplayMusicClip.setFramePosition(0);
          gameplayMusicClip.start();
      }
- 
+  
      /**
       * Stops the gameplay music.
       */
      public void stopGameplayMusic() {
          gameplayMusicClip.stop();
      }
- 
+  
      /**
       * Plays the button click sound.
       */
@@ -105,7 +132,7 @@
          buttonClickSoundClip.setFramePosition(0);
          buttonClickSoundClip.start();
      }
- 
+  
      /**
       * Plays the correct answer sound.
       */
@@ -113,7 +140,7 @@
          correctAnswerSoundClip.setFramePosition(0);
          correctAnswerSoundClip.start();
      }
- 
+     
      /**
       * Changes the audio input stream for the menu music.
       * @param music path to the music file.
@@ -121,21 +148,43 @@
       * @throws IOException
       */
      public void changeMenuMusic(String music) throws UnsupportedAudioFileException, IOException {
-         menuMusic = AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(music)));
+         menuMusic = AudioSystem.getAudioInputStream(
+             Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(music))
+         );
      }
-
+     
+     /**
+      * Returns the singleton instance of AudioManager.
+      */
      public static AudioManager getInstance() {
-        if (audioManager == null) {
-            synchronized (AudioManager.class) {
-                if (audioManager == null) {
-                    try {
-                        audioManager = new AudioManager();
-                    } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-                        e.printStackTrace(); // Consider a better exception handling
-                    }
-                }
-            }
-        }
-        return audioManager;
-    }
- }
+         if (audioManager == null) {
+             synchronized (AudioManager.class) {
+                 if (audioManager == null) {
+                     try {
+                         audioManager = new AudioManager();
+                     } catch (Exception e) {
+                         System.out.println("⚠️ Audio failed to initialize. Skipping sound.");
+                         audioManager = new SilentAudioManager(true); // Use the no-op version
+                     }
+                 }
+             }
+         }
+         return audioManager;
+     }
+     
+     /**
+      * Silent version of AudioManager that does nothing.
+      */
+     private static class SilentAudioManager extends AudioManager {
+         private SilentAudioManager(boolean dummy) {
+             super(true); // Calls the no-op constructor in AudioManager
+         }
+     
+         @Override public void playMenuMusic() {}
+         @Override public void stopMenuMusic() {}
+         @Override public void playGameplayMusic() {}
+         @Override public void stopGameplayMusic() {}
+         @Override public void playButtonClickSound() {}
+         @Override public void playCorrectAnswerSound() {}
+     }
+ } 
